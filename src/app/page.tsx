@@ -147,13 +147,13 @@ export default function Home() {
   // Datos para el slider de herramientas con URLs actualizadas
   const toolLogos = [
     { name: "ChatGPT Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
-    { name: "Runway", logo: "https://assets-global.website-files.com/6461a9a46385c1676b47e717/64b12d6e37e1a7081b8c6bca_runway-logo-white.svg" },
-    { name: "Elevenlabs", logo: "https://upload.wikimedia.org/wikipedia/commons/9/95/Eleven_Labs.svg" },
+    { name: "Runway", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQx_65omIQIfN-todQNSMT3cwxxcxgcVjJuQ&s" },
+    { name: "Elevenlabs", logo: "/images/logos/elevenlabs.png" },
     { name: "Canva", logo: "https://static.canva.com/web/images/12487a1e0770d29351bd4ce4f87ec8fe.svg" },
     { name: "Figma", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" },
-    { name: "Semrush", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/New_Semrush_logo.svg" },
-    { name: "Deepl", logo: "https://upload.wikimedia.org/wikipedia/commons/8/81/DeepL_logo.svg" },
-    { name: "Freepik", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Freepik_logo.svg" },
+    { name: "Semrush", logo: "/images/logos/semrush.png" },
+    { name: "Deepl", logo: "https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg" },
+    { name: "Freepik", logo: "/images/logos/freepik.png" },
     { name: "Midjourney", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png" },
     { name: "Perplexity", logo: "https://www.perplexity.ai/favicon.ico" },
     { name: "Helium 10", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Helium_logo.svg" },
@@ -195,6 +195,11 @@ export default function Home() {
                         alt={tool.name} 
                         className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition mx-auto"
                         loading="lazy"
+                        onError={(e) => {
+                          // Fallback a un icono genérico si la imagen falla
+                          e.currentTarget.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg";
+                          e.currentTarget.onerror = null; // Evitar bucle infinito
+                        }}
                       />
                     </div>
                     <p className="mt-2 text-sm text-gray-400">{tool.name}</p>
