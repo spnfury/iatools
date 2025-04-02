@@ -4,6 +4,7 @@ import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
 import { useState, useRef, RefObject } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import SharedFooter from '@/components/SharedFooter';
 
 interface Tool {
   name: string;
@@ -558,8 +559,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reemplazar el footer existente con el nuevo componente */}
-      <Footer currentProject="iatools.shop" />
+      {/* Footer normal */}
+      <Footer />
+
+      {/* Footer compartido */}
+      <SharedFooter currentProject="iatools.shop" />
 
       {/* Webcraft.ai Badge - Updated to match Gamma style */}
       <a

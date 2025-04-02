@@ -1,17 +1,6 @@
 import Link from 'next/link';
 
-interface FooterProps {
-  currentProject: string;
-}
-
-export default function Footer({ currentProject }: FooterProps) {
-  const projects = [
-    { name: 'iatools.shop', url: 'https://iatools.shop' },
-    { name: 'webcraft.solutions', url: 'https://webcraft.solutions' },
-    { name: 'aiwriter.pro', url: 'https://aiwriter.pro' },
-    // Añade aquí más proyectos según necesites
-  ];
-
+export default function Footer() {
   return (
     <footer className="py-12 border-t border-gray-800">
       <div className="container mx-auto px-4">
@@ -39,20 +28,11 @@ export default function Footer({ currentProject }: FooterProps) {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Otros Proyectos</h3>
+            <h3 className="font-bold mb-4">Recursos</h3>
             <ul className="space-y-2 text-gray-400">
-              {projects.map((project) => (
-                <li key={project.name}>
-                  <a 
-                    href={project.url}
-                    className={`hover:text-white ${currentProject === project.name ? 'text-blue-400' : ''}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.name}
-                  </a>
-                </li>
-              ))}
+              <li><a href="#" className="hover:text-white">Blog</a></li>
+              <li><a href="#" className="hover:text-white">Documentación</a></li>
+              <li><a href="#" className="hover:text-white">Tutoriales</a></li>
             </ul>
           </div>
           <div>
