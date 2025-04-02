@@ -8,10 +8,6 @@
 [build.environment]
   NEXT_USE_NETLIFY_EDGE = "true"
   NODE_VERSION = "18"
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server"
-  status = 200
-  force = true 
+# Remove NETLIFY_NEXT_PLUGIN_SKIP as we want to use the Next.js plugin
+# Remove redirects as they are handled by the Next.js plugin 
