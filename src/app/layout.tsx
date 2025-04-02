@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="es" className={inter.className}>
       <head>
         <Script
+          strategy="afterInteractive"
           defer
           data-domain="iatools.shop"
           src="https://plausible.miprimermvp.com/js/script.js"
