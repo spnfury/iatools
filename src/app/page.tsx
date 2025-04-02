@@ -563,11 +563,13 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-6">
-                <img 
-                  src="https://i.imgur.com/FWblcQ5.png" 
-                  alt="iatools.shop logo" 
-                  className="w-8 h-8"
-                />
+                <div className="bg-white/10 p-1.5 rounded-lg">
+                  <img 
+                    src="https://i.imgur.com/FWblcQ5.png" 
+                    alt="iatools.shop logo" 
+                    className="h-12 w-auto object-contain"
+                  />
+                </div>
               </div>
               <p className="text-gray-400">
                 La plataforma líder en herramientas de IA
