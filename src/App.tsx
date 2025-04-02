@@ -1,5 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, RefObject } from 'react';
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Terms from './pages/Terms';
+
+interface Tool {
+  name: string;
+  price: string;
+}
+
+interface ToolCategories {
+  [key: string]: Tool[];
+}
 
 function App() {
   const whopCheckoutUrl = "https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893";
@@ -8,12 +19,12 @@ function App() {
   const [activeTab, setActiveTab] = useState('ai');
   
   // Referencias para las secciones
-  const herramientasRef = useRef(null);
-  const opinionesRef = useRef(null);
-  const faqRef = useRef(null);
-  const planesRef = useRef(null);
+  const herramientasRef = useRef<HTMLDivElement>(null);
+  const opinionesRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
+  const planesRef = useRef<HTMLDivElement>(null);
   
-  const toolCategories = {
+  const toolCategories: ToolCategories = {
     ai: [
       { name: "ChatGPT Plus", price: "20€/mes" },
       { name: "BypassGPT", price: "49€/mes" },
@@ -123,7 +134,7 @@ function App() {
   const totalValue = calculateTotalValue();
   
   // Función para desplazarse a una sección
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref: RefObject<HTMLDivElement>) => {
     if (ref && ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -271,7 +282,7 @@ function App() {
           
           {/* Tool Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {toolCategories[activeTab].map((tool, index) => (
+            {toolCategories[activeTab].map((tool: Tool, index: number) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg flex justify-between items-center">
                 <span className="font-medium">{tool.name}</span>
                 <span className="text-sm bg-blue-500/20 text-blue-300 px-2 py-1 rounded">{tool.price}</span>
@@ -572,8 +583,8 @@ function App() {
             <div>
               <h3 className="font-bold mb-4">Legal</h3>
               <ul className="space-y-2 text-gray-400">
+                <li><Link to="/terms" className="hover:text-white">Términos y Condiciones</Link></li>
                 <li><a href="#" className="hover:text-white">Privacidad</a></li>
-                <li><a href="#" className="hover:text-white">Términos</a></li>
                 <li><a href="#" className="hover:text-white">Cookies</a></li>
               </ul>
             </div>
@@ -598,4 +609,15 @@ function App() {
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/terms" element={<Terms />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default AppWrapper;
