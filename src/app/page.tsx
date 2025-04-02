@@ -2,6 +2,7 @@
 
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
 import { useState, useRef, RefObject } from 'react';
+import Link from 'next/link';
 
 interface Tool {
   name: string;
@@ -591,7 +592,7 @@ export default function Home() {
             <div>
               <h3 className="font-bold mb-4">Legal</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/terms" className="hover:text-white">Términos y Condiciones</a></li>
+                <li><Link href="/terms" className="hover:text-white">Términos y Condiciones</Link></li>
                 <li><a href="#" className="hover:text-white">Privacidad</a></li>
                 <li><a href="#" className="hover:text-white">Cookies</a></li>
               </ul>
