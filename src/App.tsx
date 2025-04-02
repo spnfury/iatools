@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
 
 function App() {
-  const whopCheckoutUrl = "https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893";
+  const whopCheckoutUrl = "https://whop.com/checkout/plan_QfbHBxoZh4Skr?d2c=true&a=usere6d0672893";
   const [activeTab, setActiveTab] = useState('ai');
   
   // Referencias para las secciones
@@ -149,7 +149,11 @@ function App() {
       <header className="fixed w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <Brain className="w-8 h-8 text-blue-400" />
+            <img 
+              src="https://i.imgur.com/uyamTyE.png" 
+              alt="iatools.shop logo" 
+              className="w-8 h-8"
+            />
             <span className="text-xl font-bold">iatools.shop</span>
           </div>
           <nav className="flex space-x-8">
@@ -166,7 +170,7 @@ function App() {
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Consiguelon <span className="text-blue-400">+40 Herramientas</span>
+            Consigue <span className="text-blue-400">+40 Herramientas</span>
             <br />de IA, Automatización y Diseño
           </h1>
           <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
@@ -472,8 +476,8 @@ function App() {
                 <p className="text-blue-200">Acceso completo a todas las herramientas</p>
               </div>
               <div className="mb-8">
-                <span className="text-4xl font-bold">99€</span>
-                <span className="text-blue-200">/mes</span>
+                <span className="text-4xl font-bold">227€</span>
+                <span className="text-blue-200">/año</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-2">
@@ -536,7 +540,11 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-6">
-                <Brain className="w-8 h-8 text-blue-400" />
+                <img 
+                  src="https://i.imgur.com/uyamTyE.png" 
+                  alt="iatools.shop logo" 
+                  className="w-8 h-8"
+                />
                 <span className="text-xl font-bold">iatools.shop</span>
               </div>
               <p className="text-gray-400">
