@@ -2,7 +2,9 @@ import React, { useState, useRef } from 'react';
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
 
 function App() {
-  const whopCheckoutUrl = "https://discord.com/channels/@me/1326567627182571591/1356989536642531478";
+  const whopCheckoutUrl = "https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893";
+  const whopCheckoutUrla = "https://whop.com/checkout/plan_QfbHBxoZh4Skr?d2c=true&a=usere6d0672893";
+  
   const [activeTab, setActiveTab] = useState('ai');
   
   // Referencias para las secciones
@@ -500,7 +502,7 @@ function App() {
                 </li>
               </ul>
               <a 
-                href={whopCheckoutUrl}
+                href={whopCheckoutUrla}
                 className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
                 target="_blank"
                 rel="noopener noreferrer"
