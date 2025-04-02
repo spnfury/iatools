@@ -156,7 +156,6 @@ function App() {
               alt="iatools.shop logo" 
               className="w-8 h-8"
             />
-            <span className="text-xl font-bold">iatools.shop</span>
           </div>
           <nav className="flex space-x-8">
             <a href="#" className="text-gray-400 hover:text-white">Inicio</a>
