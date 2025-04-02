@@ -177,7 +177,8 @@ function App() {
             Ahora • <span className="text-pink-500">3000€</span> en herramientas premium como ChatGPT Pro, Runway, y más. Incluye templates, scripts, y recursos para la automatización.
           </p>
           <a 
-            href={whopCheckoutUrl}
+            href="#planes"
+            onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
             className="inline-block bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
             target="_blank"
             rel="noopener noreferrer"
@@ -286,7 +287,8 @@ function App() {
               </p>
             </div>
             <a 
-              href={whopCheckoutUrl}
+              href="#planes"
+              onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
               className="inline-block bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition text-lg font-bold"
               target="_blank"
               rel="noopener noreferrer"
