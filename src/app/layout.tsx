@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="es" className={inter.className}>
       <head>
         <Script
           defer
@@ -25,7 +25,7 @@ export default function RootLayout({
           src="https://plausible.miprimermvp.com/js/script.js"
         />
       </head>
-      <body className={`${inter.className} bg-gray-900 text-white`}>
+      <body className="bg-gray-900 text-white">
         <Header />
         <main className="pt-20">
           {children}
