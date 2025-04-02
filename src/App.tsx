@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
 
 function App() {
-  const whopCheckoutUrl = "https://whop.com/checkout/plan_QfbHBxoZh4Skr?d2c=true&a=usere6d0672893";
+  const whopCheckoutUrl = "https://discord.com/channels/@me/1326567627182571591/1356989536642531478";
   const [activeTab, setActiveTab] = useState('ai');
   
   // Referencias para las secciones
@@ -150,7 +150,7 @@ function App() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <img 
-              src="https://i.imgur.com/uyamTyE.png" 
+              src="https://i.imgur.com/FWblcQ5.png" 
               alt="iatools.shop logo" 
               className="w-8 h-8"
             />
@@ -541,7 +541,7 @@ function App() {
             <div>
               <div className="flex items-center space-x-2 mb-6">
                 <img 
-                  src="https://i.imgur.com/uyamTyE.png" 
+                  src="https://i.imgur.com/FWblcQ5.png" 
                   alt="iatools.shop logo" 
                   className="w-8 h-8"
                 />
