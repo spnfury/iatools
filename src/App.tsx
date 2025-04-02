@@ -547,7 +547,6 @@ function App() {
                   alt="iatools.shop logo" 
                   className="w-8 h-8"
                 />
-                <span className="text-xl font-bold">iatools.shop</span>
               </div>
               <p className="text-gray-400">
                 La plataforma líder en herramientas de IA
