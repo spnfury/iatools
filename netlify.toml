@@ -16,21 +16,4 @@
     cache-control = '''
     public,
     max-age=31536000,
-    immutable'''
-
-[[redirects]]
-  from = "/proxy/script.js"
-  to = "https://plausible.miprimermvp.com/js/script.js"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/proxy/api/event"
-  to = "https://plausible.miprimermvp.com/api/event"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server"
-  status = 200 
+    immutable''' 
