@@ -23,7 +23,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           defer
           data-domain="iatools.shop"
-          src="https://plausible.miprimermvp.com/js/script.js"
+          src="/js/script.js"
         />
       </head>
       <body className="bg-gray-900 text-white">
