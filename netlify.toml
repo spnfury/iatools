@@ -9,5 +9,19 @@
   NEXT_USE_NETLIFY_EDGE = "true"
   NODE_VERSION = "18"
 
-# Remove NETLIFY_NEXT_PLUGIN_SKIP as we want to use the Next.js plugin
-# Remove redirects as they are handled by the Next.js plugin 
+[[redirects]]
+  from = "/proxy/script.js"
+  to = "https://plausible.miprimermvp.com/js/script.js"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/proxy/api/event"
+  to = "https://plausible.miprimermvp.com/api/event"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200 
