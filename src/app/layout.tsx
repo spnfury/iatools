@@ -21,9 +21,9 @@ export default function RootLayout({
       <head>
         <Script
           strategy="afterInteractive"
-          defer
           data-domain="iatools.shop"
-          src="/js/script.js"
+          data-api="/proxy/api/event"
+          src="/proxy/script.js"
         />
       </head>
       <body className="bg-gray-900 text-white">

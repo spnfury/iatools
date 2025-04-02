@@ -7,11 +7,11 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/js/script.js',
+        source: '/proxy/script.js',
         destination: 'https://plausible.miprimermvp.com/js/script.js'
       },
       {
-        source: '/api/event',
+        source: '/proxy/api/event',
         destination: 'https://plausible.miprimermvp.com/api/event'
       }
     ]
