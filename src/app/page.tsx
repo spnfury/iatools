@@ -3,6 +3,7 @@
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
 import { useState, useRef, RefObject } from 'react';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 interface Tool {
   name: string;
@@ -557,76 +558,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="bg-white/10 p-1.5 rounded-lg">
-                  <img 
-                    src="https://i.imgur.com/FWblcQ5.png" 
-                    alt="iatools.shop logo" 
-                    className="h-12 w-auto object-contain"
-                  />
-                </div>
-              </div>
-              <p className="text-gray-400">
-                La plataforma líder en herramientas de IA
-              </p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Producto</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#herramientas" onClick={(e) => { e.preventDefault(); scrollToSection(herramientasRef); }} className="hover:text-white">Características</a></li>
-                <li><a href="#planes" onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }} className="hover:text-white">Precios</a></li>
-                <li><a href="#" className="hover:text-white">Integraciones</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Recursos</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-                <li><a href="#" className="hover:text-white">Documentación</a></li>
-                <li><a href="#" className="hover:text-white">Tutoriales</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Legal</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/terms" className="hover:text-white">Términos y Condiciones</Link></li>
-                <li><a href="#" className="hover:text-white">Privacidad</a></li>
-                <li><a href="#" className="hover:text-white">Cookies</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 iatools.shop. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      {/* Reemplazar el footer existente con el nuevo componente */}
+      <Footer currentProject="iatools.shop" />
 
       {/* Webcraft.ai Badge - Updated to match Gamma style */}
       <a
         href="https://webcraft.solutions"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+        className="fixed bottom-4 right-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white px-3 py-1.5 rounded-md text-xs font-medium shadow-lg flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity"
       >
-        <span>Create Websites with AI</span>
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
+        <Brain className="w-3.5 h-3.5" />
+        Create Websites with AI
       </a>
     </main>
   );
