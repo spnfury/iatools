@@ -4,6 +4,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  optimizeFonts: false,
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://iatools.shop' : '',
   async rewrites() {
     return [
       {
