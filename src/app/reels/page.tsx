@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Download, Loader2 } from 'lucide-react';
 
 export default function ReelsDownloader() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState('https://www.instagram.com/reel/DFQGqr0tZ8p/');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [downloadUrl, setDownloadUrl] = useState('');
@@ -16,8 +16,6 @@ export default function ReelsDownloader() {
     setDownloadUrl('');
 
     try {
-      // Aquí iría la lógica para obtener el video
-      // Por ahora simulamos una respuesta exitosa
       const response = await fetch('/api/download-reel', {
         method: 'POST',
         headers: {
@@ -44,7 +42,7 @@ export default function ReelsDownloader() {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-8">
-            Descargador de Reels de Instagram
+            Descargar Reels de Instagram
           </h1>
           
           <div className="bg-gray-800 p-8 rounded-xl shadow-lg">

@@ -12,37 +12,56 @@ export async function POST(request: Request) {
       );
     }
 
-    // Extraer el código del reel de la URL
-    const reelCode = url.match(/\/reel\/([^\/\?]+)/)?.[1];
-    if (!reelCode) {
-      return NextResponse.json(
-        { error: 'Invalid Instagram reel URL' },
-        { status: 400 }
-      );
-    }
-
-    // Construir la URL de la API de SaveFrom
-    const apiUrl = `https://api.savefrom.net/api/single/convert?url=${encodeURIComponent(url)}&format=mp4`;
-
-    // Hacer la petición a la API
-    const response = await axios.get(apiUrl, {
+    // Primero obtenemos el token de SnapTik
+    const tokenResponse = await axios.get('https://snaptik.app/action-ajax.php', {
+      params: {
+        url,
+        lang: 'es',
+        token: '',
+        format: 'mp4'
+      },
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
+        'Origin': 'https://snaptik.app',
+        'Referer': 'https://snaptik.app/'
       }
     });
 
-    if (!response.data || !response.data.url) {
+    if (!tokenResponse.data || !tokenResponse.data.token) {
+      throw new Error('No se pudo obtener el token de SnapTik');
+    }
+
+    // Luego usamos el token para obtener la URL del video
+    const videoResponse = await axios.get('https://snaptik.app/action-ajax.php', {
+      params: {
+        url,
+        lang: 'es',
+        token: tokenResponse.data.token,
+        format: 'mp4'
+      },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
+        'Origin': 'https://snaptik.app',
+        'Referer': 'https://snaptik.app/'
+      }
+    });
+
+    if (!videoResponse.data || !videoResponse.data.url) {
       throw new Error('No se pudo obtener la URL del video');
     }
 
     return NextResponse.json({
-      downloadUrl: response.data.url
+      downloadUrl: videoResponse.data.url
     });
 
   } catch (error) {
     console.error('Error downloading reel:', error);
     return NextResponse.json(
-      { error: 'Error al descargar el reel. Por favor, intenta con otro enlace.' },
+      { error: 'Error al descargar el reel. Por favor, intenta con otro reel o más tarde.' },
       { status: 500 }
     );
   }

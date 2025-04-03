@@ -1,5 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/reels/page": "app/reels/page.js",
-  "/api/download-reel/route": "app/api/download-reel/route.js"
+  "/api/download-reel/route": "app/api/download-reel/route.js",
+  "/reels/page": "app/reels/page.js"
 }
