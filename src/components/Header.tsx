@@ -18,20 +18,12 @@ export default function Header() {
             />
           </div>
         </Link>
-        <nav className="flex space-x-8">
-          <Link 
-            href="/" 
-            className={`${pathname === '/' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
-          >
-            Inicio
-          </Link>
-          <Link 
-            href="/terms" 
-            className={`${pathname === '/terms' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
-          >
-            Términos
-          </Link>
-        </nav>
+        <div className="hidden md:flex items-center space-x-8">
+          <a href="#herramientas" className="text-gray-300 hover:text-white">Herramientas</a>
+          <a href="#planes" className="text-gray-300 hover:text-white">Precios</a>
+          <a href="#opiniones" className="text-gray-300 hover:text-white">Opiniones</a>
+          <a href="#faq" className="text-gray-300 hover:text-white">FAQ</a>
+        </div>
       </div>
     </header>
   );
