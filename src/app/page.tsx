@@ -182,7 +182,6 @@ export default function Home() {
           >
             Registrarse ahora →
           </a>
-          <p className="mt-4 text-gray-500">© Suscripción premium muy pronto ⌛</p>
           
           {/* Tool Logos Slider - Improved version */}
           <div className="mt-16 overflow-hidden">
