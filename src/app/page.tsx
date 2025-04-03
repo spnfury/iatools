@@ -21,6 +21,7 @@ export default function Home() {
   
   const [activeTab, setActiveTab] = useState('ai');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [isAnnual, setIsAnnual] = useState(true);
   
   // Referencias para las secciones
   const herramientasRef = useRef<HTMLDivElement>(null);
@@ -436,51 +437,39 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">Escoge tu suscripción</h2>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-2">Plan Básico</h3>
-                <p className="text-gray-400">Acceso a herramientas esenciales</p>
-              </div>
-              <div className="mb-8">
-                <span className="text-4xl font-bold">25€</span>
-                <span className="text-gray-400">/mes</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span>Acceso a herramientas básicas</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span>Soporte por email</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-400" />
-                  <span>Actualizaciones mensuales</span>
-                </li>
-              </ul>
-              <a 
-                href={whopCheckoutUrl}
-                className="block w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition text-center"
-                target="_blank"
-                rel="noopener noreferrer"
+          <div className="max-w-4xl mx-auto">
+            {/* Plan Selector */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <span className={`text-lg ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>Mensual</span>
+              <button
+                onClick={() => setIsAnnual(!isAnnual)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  isAnnual ? 'bg-blue-500' : 'bg-gray-600'
+                }`}
               >
-                Suscribirse ahora
-              </a>
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    isAnnual ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+              <span className={`text-lg ${isAnnual ? 'text-white' : 'text-gray-400'}`}>Anual</span>
             </div>
-            
+
             <div className="bg-blue-600 p-8 rounded-xl relative overflow-hidden">
               <div className="absolute top-4 right-4 bg-blue-800 text-sm px-3 py-1 rounded-full">
-                Popular
+                {isAnnual ? 'Mejor valor' : 'Popular'}
               </div>
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-2">Plan Premium</h3>
                 <p className="text-blue-200">Acceso completo a todas las herramientas</p>
               </div>
               <div className="mb-8">
-                <span className="text-4xl font-bold">227€</span>
-                <span className="text-blue-200">/año</span>
+                <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
+                <span className="text-blue-200">/mes</span>
+                {isAnnual && (
+                  <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
+                )}
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-2">
@@ -501,7 +490,7 @@ export default function Home() {
                 </li>
               </ul>
               <a 
-                href={whopCheckoutUrla}
+                href={isAnnual ? whopCheckoutUrla : whopCheckoutUrl}
                 className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
                 target="_blank"
                 rel="noopener noreferrer"
