@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { IgApiClient } from 'instagram-private-api';
+import axios from 'axios';
 
 export async function POST(request: Request) {
   try {
@@ -21,26 +21,28 @@ export async function POST(request: Request) {
       );
     }
 
-    const ig = new IgApiClient();
-    
-    // Iniciar sesión (necesitarás credenciales válidas)
-    ig.state.generateDevice(process.env.IG_USERNAME || '');
-    await ig.account.login(process.env.IG_USERNAME || '', process.env.IG_PASSWORD || '');
+    // Construir la URL de la API de SaveFrom
+    const apiUrl = `https://api.savefrom.net/api/single/convert?url=${encodeURIComponent(url)}&format=mp4`;
 
-    // Obtener la información del reel
-    const reelInfo = await ig.media.info(reelCode);
-    
-    // Obtener la URL del video
-    const videoUrl = reelInfo.items[0].video_versions[0].url;
+    // Hacer la petición a la API
+    const response = await axios.get(apiUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
+    });
+
+    if (!response.data || !response.data.url) {
+      throw new Error('No se pudo obtener la URL del video');
+    }
 
     return NextResponse.json({
-      downloadUrl: videoUrl
+      downloadUrl: response.data.url
     });
 
   } catch (error) {
     console.error('Error downloading reel:', error);
     return NextResponse.json(
-      { error: 'Error downloading reel. Please try again later.' },
+      { error: 'Error al descargar el reel. Por favor, intenta con otro enlace.' },
       { status: 500 }
     );
   }
