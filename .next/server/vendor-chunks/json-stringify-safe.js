@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/json-stringify-safe";
+exports.ids = ["vendor-chunks/json-stringify-safe"];
+exports.modules = {
+
+/***/ "(rsc)/./node_modules/json-stringify-safe/stringify.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/json-stringify-safe/stringify.js ***!
+  \*******************************************************/
+/***/ ((module, exports) => {
+
+eval("\nexports = module.exports = stringify;\nexports.getSerialize = serializer;\nfunction stringify(obj, replacer, spaces, cycleReplacer) {\n    return JSON.stringify(obj, serializer(replacer, cycleReplacer), spaces);\n}\nfunction serializer(replacer, cycleReplacer) {\n    var stack = [], keys = [];\n    if (cycleReplacer == null) cycleReplacer = function(key, value) {\n        if (stack[0] === value) return \"[Circular ~]\";\n        return \"[Circular ~.\" + keys.slice(0, stack.indexOf(value)).join(\".\") + \"]\";\n    };\n    return function(key, value) {\n        if (stack.length > 0) {\n            var thisPos = stack.indexOf(this);\n            ~thisPos ? stack.splice(thisPos + 1) : stack.push(this);\n            ~thisPos ? keys.splice(thisPos, Infinity, key) : keys.push(key);\n            if (~stack.indexOf(value)) value = cycleReplacer.call(this, key, value);\n        } else stack.push(value);\n        return replacer == null ? value : replacer.call(this, key, value);\n    };\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvanNvbi1zdHJpbmdpZnktc2FmZS9zdHJpbmdpZnkuanMiLCJtYXBwaW5ncyI6IjtBQUFBQSxVQUFVQyxPQUFPRCxPQUFPLEdBQUdFO0FBQzNCRixvQkFBb0IsR0FBR0k7QUFFdkIsU0FBU0YsVUFBVUcsR0FBRyxFQUFFQyxRQUFRLEVBQUVDLE1BQU0sRUFBRUMsYUFBYTtJQUNyRCxPQUFPQyxLQUFLUCxTQUFTLENBQUNHLEtBQUtELFdBQVdFLFVBQVVFLGdCQUFnQkQ7QUFDbEU7QUFFQSxTQUFTSCxXQUFXRSxRQUFRLEVBQUVFLGFBQWE7SUFDekMsSUFBSUUsUUFBUSxFQUFFLEVBQUVDLE9BQU8sRUFBRTtJQUV6QixJQUFJSCxpQkFBaUIsTUFBTUEsZ0JBQWdCLFNBQVNJLEdBQUcsRUFBRUMsS0FBSztRQUM1RCxJQUFJSCxLQUFLLENBQUMsRUFBRSxLQUFLRyxPQUFPLE9BQU87UUFDL0IsT0FBTyxpQkFBaUJGLEtBQUtHLEtBQUssQ0FBQyxHQUFHSixNQUFNSyxPQUFPLENBQUNGLFFBQVFHLElBQUksQ0FBQyxPQUFPO0lBQzFFO0lBRUEsT0FBTyxTQUFTSixHQUFHLEVBQUVDLEtBQUs7UUFDeEIsSUFBSUgsTUFBTU8sTUFBTSxHQUFHLEdBQUc7WUFDcEIsSUFBSUMsVUFBVVIsTUFBTUssT0FBTyxDQUFDLElBQUk7WUFDaEMsQ0FBQ0csVUFBVVIsTUFBTVMsTUFBTSxDQUFDRCxVQUFVLEtBQUtSLE1BQU1VLElBQUksQ0FBQyxJQUFJO1lBQ3RELENBQUNGLFVBQVVQLEtBQUtRLE1BQU0sQ0FBQ0QsU0FBU0csVUFBVVQsT0FBT0QsS0FBS1MsSUFBSSxDQUFDUjtZQUMzRCxJQUFJLENBQUNGLE1BQU1LLE9BQU8sQ0FBQ0YsUUFBUUEsUUFBUUwsY0FBY2MsSUFBSSxDQUFDLElBQUksRUFBRVYsS0FBS0M7UUFDbkUsT0FDS0gsTUFBTVUsSUFBSSxDQUFDUDtRQUVoQixPQUFPUCxZQUFZLE9BQU9PLFFBQVFQLFNBQVNnQixJQUFJLENBQUMsSUFBSSxFQUFFVixLQUFLQztJQUM3RDtBQUNGIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaWF0b29scy1uZXh0Ly4vbm9kZV9tb2R1bGVzL2pzb24tc3RyaW5naWZ5LXNhZmUvc3RyaW5naWZ5LmpzPzdjMmMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0cyA9IG1vZHVsZS5leHBvcnRzID0gc3RyaW5naWZ5XG5leHBvcnRzLmdldFNlcmlhbGl6ZSA9IHNlcmlhbGl6ZXJcblxuZnVuY3Rpb24gc3RyaW5naWZ5KG9iaiwgcmVwbGFjZXIsIHNwYWNlcywgY3ljbGVSZXBsYWNlcikge1xuICByZXR1cm4gSlNPTi5zdHJpbmdpZnkob2JqLCBzZXJpYWxpemVyKHJlcGxhY2VyLCBjeWNsZVJlcGxhY2VyKSwgc3BhY2VzKVxufVxuXG5mdW5jdGlvbiBzZXJpYWxpemVyKHJlcGxhY2VyLCBjeWNsZVJlcGxhY2VyKSB7XG4gIHZhciBzdGFjayA9IFtdLCBrZXlzID0gW11cblxuICBpZiAoY3ljbGVSZXBsYWNlciA9PSBudWxsKSBjeWNsZVJlcGxhY2VyID0gZnVuY3Rpb24oa2V5LCB2YWx1ZSkge1xuICAgIGlmIChzdGFja1swXSA9PT0gdmFsdWUpIHJldHVybiBcIltDaXJjdWxhciB+XVwiXG4gICAgcmV0dXJuIFwiW0NpcmN1bGFyIH4uXCIgKyBrZXlzLnNsaWNlKDAsIHN0YWNrLmluZGV4T2YodmFsdWUpKS5qb2luKFwiLlwiKSArIFwiXVwiXG4gIH1cblxuICByZXR1cm4gZnVuY3Rpb24oa2V5LCB2YWx1ZSkge1xuICAgIGlmIChzdGFjay5sZW5ndGggPiAwKSB7XG4gICAgICB2YXIgdGhpc1BvcyA9IHN0YWNrLmluZGV4T2YodGhpcylcbiAgICAgIH50aGlzUG9zID8gc3RhY2suc3BsaWNlKHRoaXNQb3MgKyAxKSA6IHN0YWNrLnB1c2godGhpcylcbiAgICAgIH50aGlzUG9zID8ga2V5cy5zcGxpY2UodGhpc1BvcywgSW5maW5pdHksIGtleSkgOiBrZXlzLnB1c2goa2V5KVxuICAgICAgaWYgKH5zdGFjay5pbmRleE9mKHZhbHVlKSkgdmFsdWUgPSBjeWNsZVJlcGxhY2VyLmNhbGwodGhpcywga2V5LCB2YWx1ZSlcbiAgICB9XG4gICAgZWxzZSBzdGFjay5wdXNoKHZhbHVlKVxuXG4gICAgcmV0dXJuIHJlcGxhY2VyID09IG51bGwgPyB2YWx1ZSA6IHJlcGxhY2VyLmNhbGwodGhpcywga2V5LCB2YWx1ZSlcbiAgfVxufVxuIl0sIm5hbWVzIjpbImV4cG9ydHMiLCJtb2R1bGUiLCJzdHJpbmdpZnkiLCJnZXRTZXJpYWxpemUiLCJzZXJpYWxpemVyIiwib2JqIiwicmVwbGFjZXIiLCJzcGFjZXMiLCJjeWNsZVJlcGxhY2VyIiwiSlNPTiIsInN0YWNrIiwia2V5cyIsImtleSIsInZhbHVlIiwic2xpY2UiLCJpbmRleE9mIiwiam9pbiIsImxlbmd0aCIsInRoaXNQb3MiLCJzcGxpY2UiLCJwdXNoIiwiSW5maW5pdHkiLCJjYWxsIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/json-stringify-safe/stringify.js\n");
+
+/***/ })
+
+};
+;
