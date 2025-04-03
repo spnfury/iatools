@@ -23,6 +23,7 @@ export default function Header() {
           <a href="#planes" className="text-gray-300 hover:text-white">Precios</a>
           <a href="#opiniones" className="text-gray-300 hover:text-white">Opiniones</a>
           <a href="#faq" className="text-gray-300 hover:text-white">FAQ</a>
+          <Link href="/reels" className="text-gray-300 hover:text-white">Descargar Reels</Link>
         </div>
       </div>
     </header>
