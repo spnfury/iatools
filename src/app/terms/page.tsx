@@ -7,7 +7,7 @@ export default function Terms() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">1. Aceptación de los Términos</h2>
           <p>
-            Al accedaer y utilizar iatools.shop, usted acepta estar sujeto a estos términos y condiciones. 
+            Al acceder y utilizar iatools.shop, usted acepta estar sujeto a estos términos y condiciones. 
             Si no está de acuerdo con alguna parte de estos términos, no podrá acceder al servicio.
           </p>
         </section>
