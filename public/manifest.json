@@ -1,0 +1,26 @@
+{
+  "name": "IA Tools - Herramientas de IA Premium",
+  "short_name": "IA Tools",
+  "description": "Acceso a más de 80 herramientas de IA y software premium en una simple suscripción",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["productivity", "business", "utilities"],
+  "lang": "es",
+  "dir": "ltr"
+} 

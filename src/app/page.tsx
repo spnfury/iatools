@@ -34,8 +34,10 @@ export default function Home() {
       { name: "ChatGPT Plus", price: "20€/mes" },
       { name: "BypassGPT", price: "49€/mes" },
       { name: "Perplexity Pro", price: "25€/mes" },
-      { name: "Play.ht", price: "99€/mes" },
+      { name: "Play.HT", price: "99€/mes" },
       { name: "ElevenLabs", price: "20€/mes" },
+      { name: "Fish Audio", price: "15€/mes" },
+      { name: "ChatBot AI", price: "25€/mes" },
       { name: "QuillBot", price: "19,95€/mes" },
       { name: "DeepL Pro", price: "39,99€/mes" },
       { name: "Midjourney", price: "30€/mes" },
@@ -67,6 +69,7 @@ export default function Home() {
     ],
     design: [
       { name: "Canva Pro", price: "15€/mes" },
+      { name: "Gamma", price: "20€/mes" },
       { name: "Clipchamp", price: "12€/mes" },
       { name: "Envato Elements", price: "33€/mes" },
       { name: "Freepik", price: "36€/mes" },
@@ -101,6 +104,9 @@ export default function Home() {
       { name: "Article Builder", price: "22€/mes" }
     ],
     other: [
+      { name: "HeyGen", price: "29€/mes" },
+      { name: "Turboscribe", price: "20€/mes" },
+      { name: "Cramly", price: "15€/mes" },
       { name: "Surfshark VPN", price: "13€/mes" },
       { name: "FlutterFlow", price: "30€/mes" },
       { name: "Tutor LMS", price: "Licencia" },
@@ -211,27 +217,201 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Section */}
+      {/* Instagram Reel Section */}
       <section className="py-20 bg-gray-800/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-              Descubre el Poder de Nuestras Herramientas
+              ¿Qué es <span className="text-blue-400">IA Tools</span>?
             </h2>
-            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/I58NjXVz7o8"
-                title="Video demostración de iatools.shop"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-            <p className="text-gray-400 text-center mt-6 text-lg">
-              Mira cómo nuestras herramientas de IA pueden transformar tu flujo de trabajo
+            <p className="text-gray-400 text-center mb-8 text-lg max-w-2xl mx-auto">
+              Descubre cómo nuestra plataforma te da acceso a más de 80 herramientas premium de IA, diseño y automatización en una sola suscripción
             </p>
+            
+            {/* Instagram Reel Embed */}
+            <div className="flex justify-center mb-8">
+              <div className="instagram-reel-container w-full max-w-sm aspect-[9/16] shadow-2xl">
+                <iframe
+                  src="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDg2NDk0MjM0NzgwOTc2/embed"
+                  width="100%"
+                  height="100%"
+                  title="Instagram Reel - ¿Qué es IA Tools?"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full bg-gray-900"
+                  style={{ border: 'none' }}
+                ></iframe>
+              </div>
+            </div>
+            
+            {/* Fallback para el reel */}
+            <div className="text-center">
+              <p className="text-gray-400 mb-4">
+                Si no puedes ver el reel, puedes verlo directamente en Instagram:
+              </p>
+              <a 
+                href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDg2NDk0MjM0NzgwOTc2?story_media_id=3602179369170133927&igsh=ZDF2cnJ6bjNkdmxz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-medium"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Ver en Instagram
+              </a>
+            </div>
+            
+            <div className="mt-12 grid md:grid-cols-3 gap-8">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition-all duration-300">
+                  <Brain className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Herramientas de IA</h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Acceso a ChatGPT Pro, Midjourney, Runway y más herramientas premium de inteligencia artificial
+                </p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500/30 transition-all duration-300">
+                  <Plus className="w-8 h-8 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors duration-300">Una Suscripción</h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Todo incluido en una sola suscripción mensual. Sin costos ocultos ni complicaciones
+                </p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-all duration-300">
+                  <Check className="w-8 h-8 text-green-400 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors duration-300">Ahorro Garantizado</h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Ahorra miles de euros al mes comparado con comprar cada herramienta por separado
+                </p>
+              </div>
+            </div>
+            
+            {/* Call to Action después del reel */}
+            <div className="mt-12 text-center">
+              <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 rounded-2xl border border-blue-500/20">
+                <h3 className="text-2xl font-bold mb-4">
+                  ¿Listo para transformar tu productividad?
+                </h3>
+                <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+                  Únete a miles de profesionales que ya están ahorrando tiempo y dinero con nuestras herramientas premium
+                </p>
+                <a 
+                  href="#planes"
+                  onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl pulse-glow"
+                >
+                  Comenzar Ahora
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Demo Section - Cómo se ve la plataforma por dentro */}
+      <section className="py-20 bg-gray-900/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+              Descubre <span className="text-blue-400">cómo funciona</span> nuestra plataforma
+            </h2>
+            <p className="text-gray-400 text-center mb-12 text-lg max-w-3xl mx-auto">
+              Mira este video para ver exactamente cómo acceder a todas las herramientas premium desde nuestro dashboard
+            </p>
+            
+            {/* Video Demo */}
+            <div className="relative video-demo-container">
+              <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-800">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/I58NjXVz7o8"
+                  title="Demo de la plataforma IA Tools - Cómo acceder a las herramientas"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              
+              {/* Overlay con información adicional */}
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full shadow-lg float-animation">
+                  <span className="font-medium">Demo completo de la plataforma</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Características destacadas del video */}
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              <div className="text-center feature-card p-6 rounded-xl">
+                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-2">Acceso Inmediato</h3>
+                <p className="text-gray-400 text-sm">
+                  Una vez suscrito, accede instantáneamente a todas las herramientas desde tu dashboard personal
+                </p>
+              </div>
+              <div className="text-center feature-card p-6 rounded-xl">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-2">Interfaz Intuitiva</h3>
+                <p className="text-gray-400 text-sm">
+                  Navega fácilmente entre categorías y encuentra las herramientas que necesitas en segundos
+                </p>
+              </div>
+              <div className="text-center feature-card p-6 rounded-xl">
+                <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-2">Configuración Rápida</h3>
+                <p className="text-gray-400 text-sm">
+                  Configura tus herramientas favoritas y personaliza tu experiencia de trabajo
+                </p>
+              </div>
+            </div>
+            
+            {/* CTA adicional */}
+            <div className="mt-12 text-center">
+              <p className="text-gray-400 mb-6">
+                ¿Tienes preguntas sobre cómo funciona? Nuestro equipo está aquí para ayudarte
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="#planes"
+                  onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
+                  className="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 font-medium"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                  Probar Ahora
+                </a>
+                <a 
+                  href="mailto:soporte@iatools.shop"
+                  className="inline-flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-all duration-300 font-medium"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Contactar Soporte
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -271,12 +451,43 @@ export default function Home() {
           
           {/* Tool Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {toolCategories[activeTab].map((tool: Tool, index: number) => (
-              <div key={index} className="bg-gray-800 p-4 rounded-lg flex justify-between items-center">
-                <span className="font-medium">{tool.name}</span>
-                <span className="text-sm bg-blue-500/20 text-blue-300 px-2 py-1 rounded">{tool.price}</span>
-              </div>
-            ))}
+            {toolCategories[activeTab].map((tool: Tool, index: number) => {
+              // Mapear nombres de herramientas a rutas
+              const getToolRoute = (toolName: string) => {
+                const routeMap: { [key: string]: string } = {
+                  'ChatGPT Plus': '/chatgpt-pro',
+                  'ElevenLabs': '/elevenlabs',
+                  'DeepL Pro': '/deepl-pro',
+                  'Midjourney': '/midjourney',
+                  'Canva Pro': '/canva-pro',
+                  'Semrush (Business)': '/semrush',
+                  'Freepik': '/freepik',
+                  'HeyGen': '/heygen',
+                  'Fish Audio': '/fish-audio',
+                  'Turboscribe': '/turboscribe',
+                  'Cramly': '/cramly',
+                  'Gamma': '/gamma',
+                  'Play.HT': '/play-ht',
+                  'ChatBot AI': '/chatbot-ai'
+                };
+                return routeMap[toolName] || null;
+              };
+
+              const toolRoute = getToolRoute(tool.name);
+              
+              return (
+                <div key={index} className="bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition-colors">
+                  {toolRoute ? (
+                    <Link href={toolRoute} className="font-medium hover:text-blue-400 transition-colors">
+                      {tool.name}
+                    </Link>
+                  ) : (
+                    <span className="font-medium">{tool.name}</span>
+                  )}
+                  <span className="text-sm bg-blue-500/20 text-blue-300 px-2 py-1 rounded">{tool.price}</span>
+                </div>
+              );
+            })}
           </div>
           
           <div className="text-center mt-12">

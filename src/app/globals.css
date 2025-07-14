@@ -14,4 +14,141 @@
 
 .animate-scroll {
   animation: scroll 30s linear infinite;
+}
+
+/* Instagram Reel styling */
+.instagram-reel-container {
+  position: relative;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  padding: 2px;
+  border-radius: 1rem;
+}
+
+.instagram-reel-container iframe {
+  border-radius: 0.875rem;
+}
+
+/* Favicon glow effect */
+@keyframes favicon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.8));
+  }
+}
+
+.favicon-glow {
+  animation: favicon-glow 3s ease-in-out infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Instagram Reel hover effects */
+.instagram-reel-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Loading animation for iframe */
+.instagram-reel-container iframe {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced button hover effects */
+.btn-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Pulse animation for CTA elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Video demo section styling */
+.video-demo-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.video-demo-container:hover {
+  transform: scale(1.02);
+}
+
+.video-demo-container iframe {
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Overlay badge animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Feature cards hover effects */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 } 
