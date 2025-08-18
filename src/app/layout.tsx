@@ -75,7 +75,9 @@ export default function RootLayout({
     <html lang="es" className={inter.className}>
       <head>
         <Script
-          strategy="afterInteractive" data-domain="iatools.shop" src="https://plausible.miprimermvp.com/js/script.js"
+          src="/proxy/script.js"
+          data-domain="iatools.shop"
+          strategy="afterInteractive"
         />
       </head>
       <body className="bg-gray-900 text-white">

@@ -1,11 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const pathname = usePathname();
-  
   return (
     <header className="fixed w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -18,14 +15,14 @@ export default function Header() {
             />
           </div>
         </Link>
-        <div className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8" aria-label="Principal">
           <a href="#herramientas" className="text-gray-300 hover:text-white">Herramientas</a>
           <a href="#planes" className="text-gray-300 hover:text-white">Precios</a>
           <a href="#opiniones" className="text-gray-300 hover:text-white">Opiniones</a>
           <a href="#faq" className="text-gray-300 hover:text-white">FAQ</a>
           <Link href="/reels" className="text-gray-300 hover:text-white">Descargar Reels</Link>
-        </div>
+        </nav>
       </div>
     </header>
   );
-} 
+}

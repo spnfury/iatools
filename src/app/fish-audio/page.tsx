@@ -193,7 +193,7 @@ export default function FishAudioPage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="fish-audio" />
+      <RelatedTools currentTool="/fish-audio" />
     </div>
   );
 } 

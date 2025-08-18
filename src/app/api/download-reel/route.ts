@@ -1,6 +1,16 @@
 import { NextResponse } from 'next/server';
 import { IgApiClient } from 'instagram-private-api';
 
+function isValidInstagramUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    if (!/^(?:www\.)?instagram\.com$/.test(url.hostname)) return false;
+    return /\/reel\//.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const { url } = await request.json();
@@ -12,8 +22,15 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!isValidInstagramUrl(url)) {
+      return NextResponse.json(
+        { error: 'URL de Instagram no válida' },
+        { status: 400 }
+      );
+    }
+
     // Extraer el código del reel de la URL
-    const reelCode = url.match(/\/reel\/([^\/]+)/)?.[1];
+    const reelCode = url.match(/\/reel\/([^\/?#]+)/)?.[1];
     if (!reelCode) {
       return NextResponse.json(
         { error: 'URL de Instagram no válida' },
@@ -25,11 +42,20 @@ export async function POST(request: Request) {
     const ig = new IgApiClient();
     
     // Configurar credenciales (puedes usar credenciales temporales)
-    ig.state.generateDevice(process.env.IG_USERNAME || '');
-    await ig.account.login(process.env.IG_USERNAME || '', process.env.IG_PASSWORD || '');
+    const username = process.env.IG_USERNAME;
+    const password = process.env.IG_PASSWORD;
+    if (!username || !password) {
+      return NextResponse.json(
+        { error: 'Servicio no disponible: faltan credenciales del proveedor' },
+        { status: 503 }
+      );
+    }
+    ig.state.generateDevice(username);
+    await ig.account.login(username, password);
 
-    // Obtener la información del reel
-    const reelInfo = await ig.media.info(reelCode);
+    // Resolver mediaId a partir del shortcode y obtener info
+    const mediaId = await ig.media.getIdByShortcode({ shortcode: reelCode });
+    const reelInfo = await ig.media.info(mediaId);
     
     if (!reelInfo.items[0]?.video_versions?.[0]?.url) {
       throw new Error('No se pudo obtener la URL del video');

@@ -15,7 +15,8 @@ interface RelatedTool {
 }
 
 interface RelatedToolsProps {
-  currentService: string;
+  currentTool: string;
+  language?: 'es' | 'en';
 }
 
 const allTools: RelatedTool[] = [
@@ -193,16 +194,15 @@ const textColorClasses = {
   rose: 'group-hover:text-rose-400'
 };
 
-export default function RelatedTools({ currentService }: RelatedToolsProps) {
-  // Filtrar herramientas relacionadas (excluir la actual)
-  const relatedTools = allTools.filter(tool => tool.path !== `/${currentService}`).slice(0, 3);
+export default function RelatedTools({ currentTool, language = 'es' }: RelatedToolsProps) {
+  const relatedTools = allTools.filter(tool => tool.path !== currentTool).slice(0, 3);
 
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Otras Herramientas de IA Premium
+            {language === 'es' ? 'Otras Herramientas de IA Premium' : 'Other Premium AI Tools'}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {relatedTools.map((tool) => (
@@ -215,7 +215,7 @@ export default function RelatedTools({ currentService }: RelatedToolsProps) {
                     {tool.name}
                   </h3>
                   <p className="text-gray-400 text-sm">
-                    {tool.description.es}
+                    {language === 'es' ? tool.description.es : tool.description.en}
                   </p>
                 </div>
               </Link>
@@ -227,7 +227,7 @@ export default function RelatedTools({ currentService }: RelatedToolsProps) {
               href="/#planes"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-bold text-lg"
             >
-              Ver Todas las Herramientas
+              {language === 'es' ? 'Ver Todas las Herramientas' : 'View All Tools'}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

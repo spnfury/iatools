@@ -193,7 +193,7 @@ export default function ChatBotAIPage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="chatbot-ai" />
+      <RelatedTools currentTool="/chatbot-ai" />
     </div>
   );
 } 

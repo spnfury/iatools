@@ -161,7 +161,7 @@ export default function HeyGenPage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="heygen" />
+      <RelatedTools currentTool="/heygen" />
     </div>
   );
 } 

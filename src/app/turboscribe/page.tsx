@@ -193,7 +193,7 @@ export default function TurboscribePage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="turboscribe" />
+      <RelatedTools currentTool="/turboscribe" />
     </div>
   );
 } 

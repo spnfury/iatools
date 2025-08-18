@@ -193,7 +193,7 @@ export default function CramlyPage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="cramly" />
+      <RelatedTools currentTool="/cramly" />
     </div>
   );
 } 

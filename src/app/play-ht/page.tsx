@@ -193,7 +193,7 @@ export default function PlayHTPage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="play-ht" />
+      <RelatedTools currentTool="/play-ht" />
     </div>
   );
 } 

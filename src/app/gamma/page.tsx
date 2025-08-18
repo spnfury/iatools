@@ -193,7 +193,7 @@ export default function GammaPage() {
       </section>
 
       {/* Related Tools */}
-      <RelatedTools currentService="gamma" />
+      <RelatedTools currentTool="/gamma" />
     </div>
   );
 } 

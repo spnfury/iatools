@@ -16,12 +16,12 @@ interface ToolCategories {
 }
 
 export default function Home() {
-  const whopCheckoutUrl = "https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893";
-  const whopCheckoutUrla = "https://whop.com/checkout/plan_QfbHBxoZh4Skr?d2c=true&a=usere6d0672893";
+  const whopCheckoutMonthly = "https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893";
+  const whopCheckoutAnnual = "https://whop.com/checkout/plan_QfbHBxoZh4Skr?d2c=true&a=usere6d0672893";
   
   const [activeTab, setActiveTab] = useState('ai');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [isAnnual, setIsAnnual] = useState(true);
+  const [isAnnual, setIsAnnual] = useState(false);
   
   // Referencias para las secciones
   const herramientasRef = useRef<HTMLDivElement>(null);
@@ -126,19 +126,14 @@ export default function Home() {
   // Calcular el valor total de todas las herramientas
   const calculateTotalValue = () => {
     let total = 0;
-    
     Object.values(toolCategories).forEach(category => {
       category.forEach(tool => {
-        if (tool.price !== "Gratis" && tool.price !== "Licencia" && tool.price !== "Recurso") {
-          const priceString = tool.price.replace('€/mes', '').replace(',', '.');
-          const price = parseFloat(priceString);
-          if (!isNaN(price)) {
-            total += price;
-          }
-        }
+        if (tool.price === "Gratis" || tool.price === "Licencia" || tool.price === "Recurso") return;
+        const priceString = tool.price.replace('€/mes', '').replace(',', '.');
+        const priceNumber = Number(priceString);
+        if (!Number.isNaN(priceNumber)) total += priceNumber;
       });
     });
-    
     return Math.round(total);
   };
 
@@ -183,8 +178,6 @@ export default function Home() {
             href="#planes"
             onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
             className="inline-block bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Registrarse ahora →
           </a>
@@ -650,9 +643,17 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             {/* Plan Selector */}
             <div className="flex items-center justify-center gap-4 mb-8">
-              <span className={`text-lg ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>Mensual</span>
+              <span
+                onClick={() => setIsAnnual(false)}
+                className={`text-lg ${!isAnnual ? 'text-white' : 'text-gray-400'} cursor-pointer select-none`}
+              >
+                Mensual
+              </span>
               <button
                 onClick={() => setIsAnnual(!isAnnual)}
+                role="switch"
+                aria-checked={isAnnual}
+                aria-label="Alternar entre plan mensual y anual"
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
                   isAnnual ? 'bg-blue-500' : 'bg-gray-600'
                 }`}
@@ -663,7 +664,12 @@ export default function Home() {
                   }`}
                 />
               </button>
-              <span className={`text-lg ${isAnnual ? 'text-white' : 'text-gray-400'}`}>Anual</span>
+              <span
+                onClick={() => setIsAnnual(true)}
+                className={`text-lg ${isAnnual ? 'text-white' : 'text-gray-400'} cursor-pointer select-none`}
+              >
+                Anual
+              </span>
             </div>
 
             <div className="bg-blue-600 p-8 rounded-xl relative overflow-hidden">
@@ -699,14 +705,14 @@ export default function Home() {
                   <span>Templates y recursos exclusivos</span>
                 </li>
               </ul>
-              <a 
-                href={isAnnual ? whopCheckoutUrla : whopCheckoutUrl}
-                className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Suscribirse ahora
-              </a>
+            <a 
+              href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
+              className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Suscribirse ahora
+            </a>
             </div>
           </div>
         </div>
