@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { Globe, Check, ArrowRight, Languages, Zap, Shield } from 'lucide-react';
 import Link from 'next/link';
-import { generateServiceMetadata } from '@/lib/metadata';
 import RelatedTools from '@/components/RelatedTools';
-import type { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceMetadata('deepl-pro', 'es');
-}
 
 export default function DeepLProPage() {
   const [language, setLanguage] = useState('es');

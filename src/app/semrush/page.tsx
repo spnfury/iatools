@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { TrendingUp, Check, ArrowRight, Languages, Zap, Search, BarChart3 } from 'lucide-react';
 import Link from 'next/link';
-import { generateServiceMetadata } from '@/lib/metadata';
 import RelatedTools from '@/components/RelatedTools';
-import type { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceMetadata('semrush', 'es');
-}
 
 export default function SEMrushPage() {
   const [language, setLanguage] = useState('es');

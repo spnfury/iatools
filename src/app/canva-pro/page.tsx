@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { Palette, Check, ArrowRight, Languages, Zap, Image, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { generateServiceMetadata } from '@/lib/metadata';
 import RelatedTools from '@/components/RelatedTools';
-import type { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceMetadata('canva-pro', 'es');
-}
 
 export default function CanvaProPage() {
   const [language, setLanguage] = useState('es');

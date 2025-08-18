@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { Play, Download, Star, Check, ArrowRight, Volume2, Languages } from 'lucide-react';
 import Link from 'next/link';
-import { generateServiceMetadata } from '@/lib/metadata';
 import RelatedTools from '@/components/RelatedTools';
-import type { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceMetadata('elevenlabs', 'es');
-}
 
 export default function ElevenLabsPage() {
   const [language, setLanguage] = useState('es');

@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { MessageSquare, Check, ArrowRight, Languages, Zap, Brain, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { generateServiceMetadata } from '@/lib/metadata';
 import RelatedTools from '@/components/RelatedTools';
-import type { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceMetadata('chatgpt-pro', 'es');
-}
 
 export default function ChatGPTProPage() {
   const [language, setLanguage] = useState('es');

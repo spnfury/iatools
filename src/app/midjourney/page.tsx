@@ -3,13 +3,7 @@
 import { useState } from 'react';
 import { Image, Check, ArrowRight, Languages, Zap, Palette, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { generateServiceMetadata } from '@/lib/metadata';
 import RelatedTools from '@/components/RelatedTools';
-import type { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateServiceMetadata('midjourney', 'es');
-}
 
 export default function MidjourneyPage() {
   const [language, setLanguage] = useState('es');
