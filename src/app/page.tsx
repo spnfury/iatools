@@ -240,7 +240,7 @@ export default function Home() {
             <div className="flex justify-center mb-8">
               <div className="instagram-reel-container w-full max-w-sm aspect-[9/16] shadow-2xl">
                 <iframe
-                  src="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDg2NDk0MjM0NzgwOTc2/embed"
+                  src="https://www.instagram.com/reel/DMGQFq4NXKt/embed"
                   width="100%"
                   height="100%"
                   title="Instagram Reel - ¿Qué es IA Tools?"
@@ -258,7 +258,7 @@ export default function Home() {
                 Si no puedes ver el reel, puedes verlo directamente en Instagram:
               </p>
               <a 
-                href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDg2NDk0MjM0NzgwOTc2?story_media_id=3602179369170133927&igsh=ZDF2cnJ6bjNkdmxz"
+                href="https://www.instagram.com/reel/DMGQFq4NXKt/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-medium"
