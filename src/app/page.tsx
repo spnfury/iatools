@@ -164,6 +164,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-900 text-white">
+      {/* Announcement Bar */}
+      <div className="bg-blue-500/10 border-b border-blue-500/20 text-blue-200 text-sm">
+        <div className="container mx-auto px-4 py-2 text-center">
+          Subimos precios muy pronto 👀
+        </div>
+      </div>
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
@@ -172,15 +178,24 @@ export default function Home() {
             <br />de IA, Automatización y Diseño
           </h1>
           <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
-            Ahora • <span className="text-pink-500">3000€</span> en herramientas premium como ChatGPT Pro, Runway, y más. Incluye templates, scripts, y recursos para la automatización.
+            Ahorra <span className="text-pink-500">+{totalValue - 25}€</span> al mes en suscripciones premium como ChatGPT Pro, ElevenLabs, Semrush y más. Incluye guías, templates y recursos para tu negocio.
           </p>
-          <a 
-            href="#planes"
-            onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
-            className="inline-block bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
-          >
-            Registrarse ahora →
-          </a>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <a 
+              href="#planes"
+              onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
+              className="inline-block bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
+            >
+              Suscríbete ahora 🚨
+            </a>
+            <a 
+              href="#herramientas"
+              onClick={(e) => { e.preventDefault(); scrollToSection(herramientasRef); }}
+              className="inline-block border border-gray-700 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
+            >
+              Ver lista de herramientas
+            </a>
+          </div>
           
           {/* Tool Logos Slider - Improved version */}
           <div className="mt-16 overflow-hidden">
@@ -325,9 +340,10 @@ export default function Home() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/I58NjXVz7o8"
-                  title="Demo de la plataforma IA Tools - Cómo acceder a las herramientas"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  src="https://www.youtube.com/embed/jOO8rUFWIKI?si=7infl6K6XBO-m14Z"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                   className="w-full h-full"
                 ></iframe>
@@ -422,10 +438,10 @@ export default function Home() {
           {/* Category Tabs */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {[
-              { id: 'ai', label: 'Inteligencia Artificial' },
               { id: 'ecommerce', label: 'Ecommerce' },
               { id: 'design', label: 'Diseño' },
-              { id: 'seo', label: 'SEO' },
+              { id: 'ai', label: 'Inteligencia Artificial' },
+              { id: 'seo', label: 'SEO y Web' },
               { id: 'other', label: 'Otros' }
             ].map(category => (
               <button
@@ -640,9 +656,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">Escoge tu suscripción</h2>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {/* Plan Selector */}
-            <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="flex items-center justify-center gap-4 mb-10">
               <span
                 onClick={() => setIsAnnual(false)}
                 className={`text-lg ${!isAnnual ? 'text-white' : 'text-gray-400'} cursor-pointer select-none`}
@@ -671,48 +687,76 @@ export default function Home() {
                 Anual
               </span>
             </div>
+            <div className="grid md:grid-cols-2 gap-6 items-stretch">
+              {/* No suscribirse */}
+              <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
+                <h3 className="text-2xl font-bold mb-2">No suscribirse ☹️</h3>
+                <p className="text-gray-400 mb-6">Pagarás el precio completo de cada herramienta. No vale la pena.</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">{totalValue}€</span>
+                  <span className="text-gray-400">/mes</span>
+                </div>
+                <ul className="space-y-3 text-gray-300 mb-8 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
+                    Precio completo de cada herramienta
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
+                    Sin soporte prioritario
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
+                    Sin templates ni recursos exclusivos
+                  </li>
+                </ul>
+                <div className="text-gray-500 text-sm">Ahorro perdido: +{totalValue - 25}€/mes</div>
+              </div>
 
-            <div className="bg-blue-600 p-8 rounded-xl relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-blue-800 text-sm px-3 py-1 rounded-full">
-                {isAnnual ? 'Mejor valor' : 'Popular'}
+              {/* Plan Premium */}
+              <div className="bg-blue-600 p-8 rounded-xl relative overflow-hidden">
+                <div className="absolute top-4 right-4 bg-blue-800 text-sm px-3 py-1 rounded-full">
+                  {isAnnual ? 'Mejor valor' : 'El más popular'}
+                </div>
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Suscripción Prémium</h3>
+                  <p className="text-blue-200">Acceso completo a todas las herramientas</p>
+                </div>
+                <div className="mb-8">
+                  <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
+                  <span className="text-blue-200">/mes</span>
+                  {isAnnual && (
+                    <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
+                  )}
+                </div>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" />
+                    <span>Acceso a +80 herramientas premium</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" />
+                    <span>Soporte prioritario 24/7</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" />
+                    <span>Actualizaciones semanales</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" />
+                    <span>Templates y recursos exclusivos</span>
+                  </li>
+                </ul>
+                <a 
+                  href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
+                  className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Suscribirse ahora
+                </a>
+                <p className="text-blue-100 text-xs mt-3">¿Pagas con crypto? Escríbenos: soporte@iatools.shop</p>
               </div>
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-2">Plan Premium</h3>
-                <p className="text-blue-200">Acceso completo a todas las herramientas</p>
-              </div>
-              <div className="mb-8">
-                <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
-                <span className="text-blue-200">/mes</span>
-                {isAnnual && (
-                  <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
-                )}
-              </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-white" />
-                  <span>Acceso a +80 herramientas premium</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-white" />
-                  <span>Soporte prioritario 24/7</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-white" />
-                  <span>Actualizaciones semanales</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-white" />
-                  <span>Templates y recursos exclusivos</span>
-                </li>
-              </ul>
-            <a 
-              href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
-              className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Suscribirse ahora
-            </a>
             </div>
           </div>
         </div>
