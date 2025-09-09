@@ -53,9 +53,8 @@ export async function POST(request: Request) {
     ig.state.generateDevice(username);
     await ig.account.login(username, password);
 
-    // Resolver mediaId a partir del shortcode y obtener info
-    const mediaId = await ig.media.getIdByShortcode({ shortcode: reelCode });
-    const reelInfo = await ig.media.info(mediaId);
+    // Intentar obtener la info directamente con el shortcode
+    const reelInfo = await ig.media.info(reelCode);
     
     if (!reelInfo.items[0]?.video_versions?.[0]?.url) {
       throw new Error('No se pudo obtener la URL del video');
