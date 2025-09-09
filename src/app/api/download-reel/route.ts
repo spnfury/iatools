@@ -55,14 +55,19 @@ export async function POST(request: Request) {
 
     // Intentar obtener la info directamente con el shortcode
     const reelInfo = await ig.media.info(reelCode);
-    
-    if (!reelInfo.items[0]?.video_versions?.[0]?.url) {
+
+    // Acceso tolerante a tipos para distintas variantes de media
+    const root: any = reelInfo as any;
+    const firstItem: any = Array.isArray(root?.items) ? root.items[0] : undefined;
+    const directVideoUrl: string | undefined = firstItem?.video_versions?.[0]?.url;
+    const carouselVideoUrl: string | undefined = firstItem?.carousel_media?.[0]?.video_versions?.[0]?.url;
+    const downloadUrl: string | undefined = directVideoUrl || carouselVideoUrl;
+
+    if (!downloadUrl) {
       throw new Error('No se pudo obtener la URL del video');
     }
 
-    return NextResponse.json({
-      downloadUrl: reelInfo.items[0].video_versions[0].url
-    });
+    return NextResponse.json({ downloadUrl });
 
   } catch (error) {
     console.error('Error downloading reel:', error);
