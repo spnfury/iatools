@@ -1,7 +1,7 @@
 'use client';
 
 import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
-import { useState, useRef, RefObject } from 'react';
+import { useState, useRef, RefObject, useEffect } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import SharedFooter from '@/components/SharedFooter';
@@ -22,6 +22,48 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('ai');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [isAnnual, setIsAnnual] = useState(false);
+
+  const blackFridayDeadline = new Date('2025-11-30T00:00:00');
+
+  const calculateTimeLeft = () => {
+    const difference = blackFridayDeadline.getTime() - new Date().getTime();
+
+    if (difference <= 0) {
+      return {
+        days: '00',
+        hours: '00',
+        minutes: '00',
+        seconds: '00',
+        isExpired: true
+      };
+    }
+
+    const totalSeconds = Math.floor(difference / 1000);
+    const days = Math.floor(totalSeconds / (60 * 60 * 24));
+    const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    const seconds = totalSeconds % 60;
+
+    const pad = (value: number) => String(value).padStart(2, '0');
+
+    return {
+      days: pad(days),
+      hours: pad(hours),
+      minutes: pad(minutes),
+      seconds: pad(seconds),
+      isExpired: false
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
   
   // Referencias para las secciones
   const herramientasRef = useRef<HTMLDivElement>(null);
@@ -164,35 +206,59 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-900 text-white">
       {/* Announcement Bar */}
-      <div className="bg-blue-500/10 border-b border-blue-500/20 text-blue-200 text-sm">
+      <div className="bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-blue-600/20 border-b border-pink-500/40 text-pink-100 text-sm">
         <div className="container mx-auto px-4 py-2 text-center">
-          Subimos precios muy pronto 👀
+          {timeLeft.isExpired
+            ? 'Oferta Black Friday finalizada recientemente. Escríbenos para conocer la próxima promoción.'
+            : `Black Friday termina en ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s — asegúrate de activar tu cuenta hoy.`}
         </div>
       </div>
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Consigue <span className="text-blue-400">+40 Herramientas</span>
-            <br />de IA, Automatización y Diseño
+          {!timeLeft.isExpired && (
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-pink-600/20 border border-pink-500/30 rounded-full text-sm font-semibold text-pink-200 mb-6">
+              <span className="uppercase tracking-wide">Black Friday</span>
+              <span className="h-1 w-1 rounded-full bg-pink-300"></span>
+              <span>Oferta disponible solo hasta agotar el tiempo</span>
+            </div>
+          )}
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Black Friday: <span className="text-pink-400">+40 Herramientas Premium</span>
+            <br /> por el precio de una sola
           </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
-            Ahorra <span className="text-pink-500">+{totalValue - 25}€</span> al mes en suscripciones premium como ChatGPT Pro, ElevenLabs, Semrush y más. Incluye guías, templates y recursos para tu negocio.
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Reclama hoy la suscripción Black Friday y ahorra más de <span className="text-pink-400 font-semibold">+{totalValue - 25}€</span> al mes en licencias como ChatGPT Pro, ElevenLabs, Semrush Business y mucho más. Incluimos guías, templates y soporte prioritario.
           </p>
+          {!timeLeft.isExpired && (
+            <div className="flex justify-center gap-4 md:gap-6 mb-10">
+              {[
+                { label: 'Días', value: timeLeft.days },
+                { label: 'Horas', value: timeLeft.hours },
+                { label: 'Minutos', value: timeLeft.minutes },
+                { label: 'Segundos', value: timeLeft.seconds }
+              ].map((item, index) => (
+                <div key={index} className="w-20 md:w-24 h-20 md:h-24 bg-gray-800/60 border border-pink-500/30 rounded-2xl flex flex-col items-center justify-center shadow-lg">
+                  <span className="text-3xl md:text-4xl font-bold text-pink-300">{item.value}</span>
+                  <span className="text-xs uppercase tracking-wide text-gray-400 mt-1">{item.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
           <div className="flex items-center justify-center gap-3 flex-wrap">
             <a 
               href="#planes"
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
-              className="inline-block bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
+              className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-pink-600 hover:to-purple-600 transition text-lg font-semibold shadow-lg hover:shadow-xl"
             >
-              Suscríbete ahora 🚨
+              Reclamar oferta Black Friday 🚨
             </a>
             <a 
               href="#herramientas"
               onClick={(e) => { e.preventDefault(); scrollToSection(herramientasRef); }}
-              className="inline-block border border-gray-700 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
+              className="inline-block border border-gray-700 text-white px-8 py-4 rounded-full hover:bg-gray-800/60 transition text-lg font-medium"
             >
-              Ver lista de herramientas
+              Ver todo lo que incluye
             </a>
           </div>
           
@@ -220,6 +286,57 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Black Friday Value Section */}
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 border-y border-pink-500/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Solo durante Black Friday: acceso total + bonos exclusivos
+            </h2>
+            <p className="text-gray-300 text-lg mb-12">
+              Asegura tu plaza hoy y desbloquea recursos pensados para acelerar tus resultados en menos de 24 horas.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Precio congelado',
+                description: 'Mantén el precio Black Friday para siempre mientras mantengas tu suscripción activa.'
+              },
+              {
+                title: 'Bonos de implementación',
+                description: 'Plantillas, prompts y flujos automatizados listos para lanzar en tu equipo desde el día 1.'
+              },
+              {
+                title: 'Soporte express',
+                description: 'Prioridad en soporte y sesiones grupales para resolver tus dudas en vivo.'
+              }
+            ].map((benefit, index) => (
+              <div key={index} className="bg-gray-800/60 border border-gray-700/60 rounded-2xl p-8 text-left">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-pink-500/20 border border-pink-500/40 mb-6">
+                  <Check className="w-6 h-6 text-pink-300" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-white">{benefit.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <a
+              href="#planes"
+              onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
+              className="inline-flex items-center gap-3 bg-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Activar acceso Black Friday ahora
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p className="text-gray-400 text-sm mt-4">
+              Plazas limitadas para garantizar soporte personalizado.
+            </p>
           </div>
         </div>
       </section>
@@ -303,17 +420,17 @@ export default function Home() {
             <div className="mt-12 text-center">
               <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 rounded-2xl border border-blue-500/20">
                 <h3 className="text-2xl font-bold mb-4">
-                  ¿Listo para transformar tu productividad?
+                  ¿Listo para aprovechar el Black Friday de IA Tools?
                 </h3>
                 <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                  Únete a miles de profesionales que ya están ahorrando tiempo y dinero con nuestras herramientas premium
+                  Únete hoy y quédate con el precio más bajo del año en herramientas premium, recursos exclusivos y soporte priorizado.
                 </p>
                 <a 
                   href="#planes"
                   onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl pulse-glow"
                 >
-                  Comenzar Ahora
+                  Asegurar Oferta
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
@@ -402,12 +519,12 @@ export default function Home() {
                 <a 
                   href="#planes"
                   onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
-                  className="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 font-medium"
+                  className="inline-flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-all duration-300 font-semibold"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
-                  Probar Ahora
+                  Aprovechar Black Friday
                 </a>
                 <a 
                   href="mailto:soporte@iatools.shop"
@@ -431,7 +548,7 @@ export default function Home() {
             Catálogo Completo de Herramientas
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            Más de 80 herramientas premium para potenciar tu negocio y creatividad
+            Más de 80 herramientas premium, ahora disponibles en la edición Black Friday para que amplifiques tu negocio sin pagar una licencia por cada una.
           </p>
           
           {/* Category Tabs */}
@@ -503,17 +620,17 @@ export default function Home() {
               <p className="text-lg">
                 <span className="text-gray-400">Valor total:</span> 
                 <span className="line-through text-gray-500 ml-2">{totalValue}€/mes</span>
-                <span className="text-green-400 font-bold ml-3">¡Ahorra {totalValue - 25}€!</span>
+                <span className="text-green-400 font-bold ml-3">Black Friday: Ahorra {totalValue - 25}€ al mes</span>
               </p>
             </div>
             <a 
               href="#planes"
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
-              className="inline-block bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition text-lg font-bold"
+              className="inline-block bg-pink-500 text-white px-8 py-4 rounded-lg hover:bg-pink-600 transition text-lg font-bold"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Accede a todas por solo 25€/mes
+              Black Friday: acceso total por solo 25€/mes
             </a>
           </div>
         </div>
@@ -527,7 +644,7 @@ export default function Home() {
             <br />negocio, en una simple suscripción
           </h2>
           <p className="text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-            Acceso a herramientas premium de IA, integración y automatización sin complicaciones
+            Acceso a herramientas premium de IA, integración y automatización sin complicaciones, con el precio exclusivo Black Friday garantizado.
           </p>
           
           <div className="grid md:grid-cols-4 gap-8">
@@ -653,7 +770,12 @@ export default function Home() {
       {/* Pricing */}
       <section ref={planesRef} id="planes" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">Escoge tu suscripción</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Elige tu plan Black Friday</h2>
+          {!timeLeft.isExpired && (
+            <p className="text-center text-gray-400 mb-12">
+              Reclama el precio más bajo del año antes de que la cuenta atrás llegue a cero.
+            </p>
+          )}
           
           <div className="max-w-5xl mx-auto">
             {/* Plan Selector */}
@@ -689,8 +811,8 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-6 items-stretch">
               {/* No suscribirse */}
               <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                <h3 className="text-2xl font-bold mb-2">No suscribirse ☹️</h3>
-                <p className="text-gray-400 mb-6">Pagarás el precio completo de cada herramienta. No vale la pena.</p>
+                <h3 className="text-2xl font-bold mb-2">No activar Black Friday ☹️</h3>
+                <p className="text-gray-400 mb-6">Seguirás pagando el precio completo de cada herramienta y perderás los bonos exclusivos.</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold">{totalValue}€</span>
                   <span className="text-gray-400">/mes</span>
@@ -702,11 +824,11 @@ export default function Home() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
-                    Sin soporte prioritario
+                    Sin soporte prioritario ni sesiones express
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
-                    Sin templates ni recursos exclusivos
+                    Sin templates ni recursos Black Friday
                   </li>
                 </ul>
                 <div className="text-gray-500 text-sm">Ahorro perdido: +{totalValue - 25}€/mes</div>
@@ -714,18 +836,37 @@ export default function Home() {
 
               {/* Plan Premium */}
               <div className="bg-blue-600 p-8 rounded-xl relative overflow-hidden">
-                <div className="absolute top-4 right-4 bg-blue-800 text-sm px-3 py-1 rounded-full">
-                  {isAnnual ? 'Mejor valor' : 'El más popular'}
+                <div className={`absolute top-4 right-4 text-sm px-3 py-1 rounded-full ${timeLeft.isExpired ? 'bg-blue-800' : 'bg-pink-500'}`}>
+                  {timeLeft.isExpired ? (isAnnual ? 'Mejor valor' : 'El más popular') : 'Oferta Black Friday'}
                 </div>
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-2">Suscripción Prémium</h3>
-                  <p className="text-blue-200">Acceso completo a todas las herramientas</p>
+                  <h3 className="text-2xl font-bold mb-2">Suscripción Black Friday</h3>
+                  <p className="text-blue-200">Acceso completo a todas las herramientas + bonos exclusivos</p>
                 </div>
                 <div className="mb-8">
-                  <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
-                  <span className="text-blue-200">/mes</span>
-                  {isAnnual && (
-                    <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
+                  <div className="flex items-baseline justify-center md:justify-start gap-3">
+                    {!timeLeft.isExpired && (
+                      <span className="text-blue-200/70 line-through text-xl">
+                        {isAnnual ? '29€' : '35€'}
+                      </span>
+                    )}
+                    <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
+                    <span className="text-blue-200">/mes</span>
+                  </div>
+                  {isAnnual ? (
+                    <>
+                      <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
+                      {!timeLeft.isExpired && (
+                        <div className="text-sm text-blue-200 mt-1">Precio programado tras Black Friday: 29€/mes (348€/año).</div>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-sm text-blue-200 mt-1">Precio mensual Black Friday garantizado mientras mantengas la suscripción.</div>
+                      {!timeLeft.isExpired && (
+                        <div className="text-sm text-blue-200 mt-1">Precio programado tras Black Friday: 35€/mes.</div>
+                      )}
+                    </>
                   )}
                 </div>
                 <ul className="space-y-4 mb-8">
@@ -743,18 +884,26 @@ export default function Home() {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-white" />
-                    <span>Templates y recursos exclusivos</span>
+                    <span>Templates y recursos exclusivos Black Friday</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" />
+                    <span>Precio congelado para renovaciones futuras</span>
                   </li>
                 </ul>
                 <a 
                   href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
-                  className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center"
+                  className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center font-semibold"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Suscribirse ahora
+                  Reclamar oferta ahora
                 </a>
-                <p className="text-blue-100 text-xs mt-3">¿Pagas con crypto? Escríbenos: soporte@iatools.shop</p>
+                <p className="text-blue-100 text-xs mt-3">
+                  {timeLeft.isExpired
+                    ? 'Consulta soporte para conocer próximas promociones.'
+                    : '¿Pagas con crypto? Escríbenos: soporte@iatools.shop'}
+                </p>
               </div>
             </div>
           </div>
