@@ -18,6 +18,9 @@
 .env.test.local
 .env.production.local
 
+# Data files
+data/discounts.json
+
 # Logs
 npm-debug.log*
 yarn-debug.log*

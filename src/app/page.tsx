@@ -5,6 +5,7 @@ import { useState, useRef, RefObject, useEffect } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import SharedFooter from '@/components/SharedFooter';
+import EmailDiscountForm from '@/components/EmailDiscountForm';
 
 interface Tool {
   name: string;
@@ -337,6 +338,15 @@ export default function Home() {
             <p className="text-gray-400 text-sm mt-4">
               Plazas limitadas para garantizar soporte personalizado.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Email Discount Form Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <EmailDiscountForm />
           </div>
         </div>
       </section>

@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import EmailDiscountForm from './EmailDiscountForm';
 
 export default function Footer() {
   return (
     <footer className="py-12 border-t border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <div className="bg-white/10 p-1.5 rounded-lg">
@@ -43,6 +44,10 @@ export default function Footer() {
               <li><Link href="/terms" className="hover:text-white">Cookies</Link></li>
             </ul>
           </div>
+        </div>
+        {/* Email Discount Form */}
+        <div className="max-w-md mx-auto">
+          <EmailDiscountForm variant="compact" />
         </div>
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>&copy; 2024 iatools.shop. Todos los derechos reservados.</p>
