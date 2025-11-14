@@ -343,9 +343,27 @@ export default function Home() {
       </section>
 
       {/* Email Discount Form Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
+      <section className="py-24 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-500/40 rounded-full mb-6">
+                <span className="text-2xl">🎉</span>
+                <span className="text-sm font-semibold text-pink-300 uppercase tracking-wide">Oferta Especial Limitada</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+                No te pierdas tu descuento exclusivo
+              </h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                Únete a nuestra comunidad y recibe un código de descuento del 10% + acceso al grupo de Telegram
+              </p>
+            </div>
             <EmailDiscountForm />
           </div>
         </div>
