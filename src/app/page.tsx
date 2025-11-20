@@ -1,6 +1,6 @@
 'use client';
 
-import { Brain, ChevronDown, Plus, Check, ArrowRight } from 'lucide-react';
+import { Brain, ChevronDown, Plus, Check, ArrowRight, Info } from 'lucide-react';
 import { useState, useRef, RefObject, useEffect } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
@@ -191,17 +191,18 @@ export default function Home() {
 
   // Datos para el slider de herramientas con URLs actualizadas
   const toolLogos = [
-    { name: "ChatGPT Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
-    { name: "Runway", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQx_65omIQIfN-todQNSMT3cwxxcxgcVjJuQ&s" },
-    { name: "ElevenLabs", logo: "/images/logos/elevenlabs.png" },
-    { name: "Canva", logo: "https://static.canva.com/web/images/12487a1e0770d29351bd4ce4f87ec8fe.svg" },
-    { name: "Figma", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" },
-    { name: "Freepik", logo: "/images/logos/freepik.png" },
-    { name: "Deepl", logo: "https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg" },
-    { name: "Midjourney", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png" },
-    { name: "Perplexity", logo: "https://www.perplexity.ai/favicon.ico" },
-    { name: "Helium 10", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Helium_logo.svg" },
-    { name: "Envato", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Envato_logo.svg" }
+    { name: "ChatGPT Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", savings: 85 },
+    { name: "ChatGPT Plus", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", savings: 83 },
+    { name: "Runway", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQx_65omIQIfN-todQNSMT3cwxxcxgcVjJuQ&s", savings: 80 },
+    { name: "ElevenLabs", logo: "https://framerusercontent.com/images/u4qDNl50ldsKNsMkdNS3aaiiHjA.png?scale-down-to=512&width=3593&height=477", savings: 75 },
+    { name: "Fish Audio", logo: "https://fish.audio/static/images/logo.svg", savings: 70 },
+    { name: "HeyGen", logo: "https://www.heygen.com/favicon.ico", savings: 82 },
+    { name: "Canva Pro", logo: "https://static.canva.com/web/images/12487a1e0770d29351bd4ce4f87ec8fe.svg", savings: 68 },
+    { name: "Freepik", logo: "https://www.freepik.com/images/logo-freepik.svg", savings: 65 },
+    { name: "Midjourney", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png", savings: 88 },
+    { name: "Perplexity Pro", logo: "https://www.perplexity.ai/favicon.svg", savings: 78 },
+    { name: "Helium 10", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Helium_logo.svg", savings: 72 },
+    { name: "Envato", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Envato_logo.svg", savings: 60 }
   ];
 
   return (
@@ -215,7 +216,7 @@ export default function Home() {
         </div>
       </div>
       {/* Hero Section */}
-      <section className="pt-32 pb-20">
+      <section className="pt-40 pb-20">
         <div className="container mx-auto px-4 text-center">
           {!timeLeft.isExpired && (
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-pink-600/20 border border-pink-500/30 rounded-full text-sm font-semibold text-pink-200 mb-6">
@@ -246,7 +247,7 @@ export default function Home() {
               ))}
             </div>
           )}
-          <div className="flex items-center justify-center gap-3 flex-wrap">
+          <div className="flex flex-col items-center gap-4">
             <a 
               href="#planes"
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
@@ -254,13 +255,10 @@ export default function Home() {
             >
               Reclamar oferta Black Friday 🚨
             </a>
-            <a 
-              href="#herramientas"
-              onClick={(e) => { e.preventDefault(); scrollToSection(herramientasRef); }}
-              className="inline-block border border-gray-700 text-white px-8 py-4 rounded-full hover:bg-gray-800/60 transition text-lg font-medium"
-            >
-              Ver todo lo que incluye
-            </a>
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <Info className="w-4 h-4 text-gray-400" />
+              <span>Subimos precios <span className="text-red-400 font-semibold">muy pronto</span> 👀</span>
+            </div>
           </div>
           
           {/* Tool Logos Slider - Improved version */}
@@ -269,20 +267,46 @@ export default function Home() {
               {[...toolLogos, ...toolLogos].map((tool, index) => (
                 <div key={index} className="flex-none w-1/3 md:w-1/4 lg:w-1/6 px-4">
                   <div className="text-center">
-                    <div className="h-16 flex items-center justify-center bg-gray-800/30 rounded-lg p-2">
+                    <div className="h-16 flex items-center justify-center bg-gray-800/30 rounded-lg p-3">
                       <img 
                         src={tool.logo} 
                         alt={tool.name} 
-                        className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition mx-auto"
+                        className="max-h-12 max-w-full object-contain opacity-90 hover:opacity-100 transition mx-auto"
+                        style={{ 
+                          filter: tool.name === 'HeyGen' || tool.name === 'Freepik' || tool.name === 'ElevenLabs' || tool.name === 'Fish Audio'
+                            ? 'brightness(0) invert(1)' 
+                            : 'none' 
+                        }}
                         loading="lazy"
                         onError={(e) => {
-                          // Fallback a un icono genérico si la imagen falla
-                          e.currentTarget.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg";
-                          e.currentTarget.onerror = null; // Evitar bucle infinito
+                          // Fallback específico para logos locales
+                          if (tool.name === 'ElevenLabs' && !e.currentTarget.src.includes('elevenlabs.png')) {
+                            e.currentTarget.src = "/images/logos/elevenlabs.png";
+                            e.currentTarget.onerror = () => {
+                              e.currentTarget.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg";
+                              e.currentTarget.onerror = null;
+                            };
+                          } else if (tool.name === 'Fish Audio') {
+                            // Intentar diferentes URLs para Fish Audio
+                            if (e.currentTarget.src.includes('favicon.svg')) {
+                              e.currentTarget.src = "https://fish.audio/favicon.ico";
+                            } else if (e.currentTarget.src.includes('favicon.ico')) {
+                              e.currentTarget.src = "https://fish.audio/logo.png";
+                            } else {
+                              e.currentTarget.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg";
+                            }
+                            e.currentTarget.onerror = null;
+                          } else {
+                            e.currentTarget.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg";
+                            e.currentTarget.onerror = null;
+                          }
                         }}
                       />
                     </div>
-                    <p className="mt-2 text-sm text-gray-400">{tool.name}</p>
+                    <p className="mt-2 text-sm text-gray-400 font-medium">{tool.name}</p>
+                    <p className="mt-1 text-xs text-pink-400 font-semibold">
+                      Ahorra {tool.savings}%
+                    </p>
                   </div>
                 </div>
               ))}
@@ -664,6 +688,174 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section ref={opinionesRef} id="opiniones" className="py-20 bg-gray-800/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">¿Qué opinan nuestros suscriptores?</h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
+              <div className="flex items-start gap-4 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">Carlos M.</h4>
+                  <p className="text-gray-400 text-sm">@carlos_marketing</p>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                "Las herramientas de IA son increíbles. He podido automatizar gran parte de mi trabajo con ChatGPT Pro y Runway. El ahorro es impresionante."
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
+              <div className="flex items-start gap-4 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">María G.</h4>
+                  <p className="text-gray-400 text-sm">@maria_designer</p>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                "El acceso a todas las herramientas premium como Elevenlabs y Canva en un solo lugar es increíble. Ya no necesito múltiples suscripciones."
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
+              <div className="flex items-start gap-4 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">David R.</h4>
+                  <p className="text-gray-400 text-sm">@david_creator</p>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                "La combinación de herramientas de IA y diseño me permite crear contenido de calidad en minutos. El soporte es excelente."
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
+              <div className="flex items-start gap-4 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">Ana L.</h4>
+                  <p className="text-gray-400 text-sm">@ana_entrepreneur</p>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                "Por el precio de una herramienta tengo acceso a más de 40. He ahorrado miles de euros al mes. La mejor inversión que he hecho."
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
+              <div className="flex items-start gap-4 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">Luis P.</h4>
+                  <p className="text-gray-400 text-sm">@luis_developer</p>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                "Midjourney, Perplexity y todas las herramientas de IA en un solo lugar. El dashboard es muy intuitivo y fácil de usar."
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
+              <div className="flex items-start gap-4 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-bold">Sofía H.</h4>
+                  <p className="text-gray-400 text-sm">@sofia_content</p>
+                </div>
+              </div>
+              <p className="text-gray-300">
+                "He mejorado mi productividad un 300%. Las guías y templates incluidos me han ahorrado horas de trabajo. Totalmente recomendado."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section ref={faqRef} id="faq" className="py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-y border-pink-500/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+              Preguntas Frecuentes
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Resolvemos todas tus dudas sobre StealthPack y cómo puedes ahorrar miles de euros
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                question: "¿Cómo puede ser tan económico?",
+                answer: "Ofrecemos acceso compartido a cuentas premium de estas herramientas mediante acuerdos especiales y modelos de negocio basados en volumen. Al agrupar múltiples usuarios en una misma suscripción, podemos negociar mejores precios y compartir los costos, permitiéndonos ofrecer acceso a más de 40 herramientas premium por el precio de una sola. Esto nos permite mantener precios bajos mientras garantizamos acceso completo a todas las funcionalidades premium."
+              },
+              {
+                question: "¿Cómo puedo acceder a las herramientas?",
+                answer: "Una vez que te suscribas, recibirás acceso inmediato a todas las herramientas a través de tu panel de control personal. Cada herramienta incluye instrucciones detalladas de configuración y uso."
+              },
+              {
+                question: "¿Necesito conocimientos técnicos?",
+                answer: "No, la mayoría de las herramientas están diseñadas para ser intuitivas y fáciles de usar. Además, proporcionamos guías paso a paso y soporte técnico para ayudarte a aprovechar al máximo cada herramienta."
+              },
+              {
+                question: "¿Puedo cancelar en cualquier momento?",
+                answer: "Sí, puedes cancelar tu suscripción en cualquier momento. No hay compromiso a largo plazo y no te cobraremos nada adicional después de la cancelación."
+              },
+              {
+                question: "¿Ofrecen soporte técnico?",
+                answer: "Sí, ofrecemos soporte técnico prioritario 24/7 para todos nuestros suscriptores. Puedes contactarnos a través de email o nuestro sistema de tickets para recibir ayuda inmediata."
+              },
+              {
+                question: "¿Las herramientas se actualizan?",
+                answer: "Sí, actualizamos regularmente nuestras herramientas para incluir las últimas características y mejoras. Los suscriptores reciben acceso automático a todas las actualizaciones sin costo adicional."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="bg-gray-800/80 border border-gray-700/50 p-6 rounded-xl hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <button 
+                  className="w-full flex justify-between items-center group"
+                  onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
+                >
+                  <span className="font-semibold text-left text-lg group-hover:text-pink-400 transition-colors pr-4">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-6 h-6 transition-transform duration-200 flex-shrink-0 text-gray-400 group-hover:text-pink-400 ${
+                      expandedFaq === i ? 'transform rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {expandedFaq === i && (
+                  <div className="mt-4 text-gray-300 leading-relaxed pt-2 border-t border-gray-700/50">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -732,64 +924,6 @@ export default function Home() {
                 <li>Hunter.io</li>
                 <li>Actualizaciones semanales</li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section ref={opinionesRef} id="opiniones" className="py-20 bg-gray-800/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">¿Qué opinan nuestros suscriptores?</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 p-6 rounded-xl">
-              <div className="flex items-start gap-4 mb-4">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80"
-                  alt="User"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-bold">Usuario Premium</h4>
-                  <p className="text-gray-400">@usuario</p>
-                </div>
-              </div>
-              <p className="text-gray-300">
-                "Las herramientas de IA son increíbles. He podido automatizar gran parte de mi trabajo con ChatGPT Pro y Runway."
-              </p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-xl">
-              <div className="flex items-start gap-4 mb-4">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80"
-                  alt="User"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-bold">Usuario Premium</h4>
-                  <p className="text-gray-400">@usuario</p>
-                </div>
-              </div>
-              <p className="text-gray-300">
-                "El acceso a todas las herramientas premium como Elevenlabs y Canva en un solo lugar es increíble."
-              </p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-xl">
-              <div className="flex items-start gap-4 mb-4">
-                <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80"
-                  alt="User"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-bold">Usuario Premium</h4>
-                  <p className="text-gray-400">@usuario</p>
-                </div>
-              </div>
-              <p className="text-gray-300">
-                "La combinación de herramientas de IA y diseño me permite crear contenido de calidad en minutos."
-              </p>
             </div>
           </div>
         </div>
@@ -938,53 +1072,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section ref={faqRef} id="faq" className="py-20 bg-gray-800/50">
+      {/* Oferta Especial Limitada */}
+      <section className="py-20 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">Preguntas Frecuentes</h2>
-          
-          <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              {
-                question: "¿Cómo puedo acceder a las herramientas?",
-                answer: "Una vez que te suscribas, recibirás acceso inmediato a todas las herramientas a través de tu panel de control personal. Cada herramienta incluye instrucciones detalladas de configuración y uso."
-              },
-              {
-                question: "¿Necesito conocimientos técnicos?",
-                answer: "No, la mayoría de las herramientas están diseñadas para ser intuitivas y fáciles de usar. Además, proporcionamos guías paso a paso y soporte técnico para ayudarte a aprovechar al máximo cada herramienta."
-              },
-              {
-                question: "¿Puedo cancelar en cualquier momento?",
-                answer: "Sí, puedes cancelar tu suscripción en cualquier momento. No hay compromiso a largo plazo y no te cobraremos nada adicional después de la cancelación."
-              },
-              {
-                question: "¿Ofrecen soporte técnico?",
-                answer: "Sí, ofrecemos soporte técnico prioritario 24/7 para todos nuestros suscriptores. Puedes contactarnos a través de email o nuestro sistema de tickets para recibir ayuda inmediata."
-              },
-              {
-                question: "¿Las herramientas se actualizan?",
-                answer: "Sí, actualizamos regularmente nuestras herramientas para incluir las últimas características y mejoras. Los suscriptores reciben acceso automático a todas las actualizaciones sin costo adicional."
-              }
-            ].map((faq, i) => (
-              <div key={i} className="bg-gray-800 p-6 rounded-xl">
-                <button 
-                  className="w-full flex justify-between items-center"
-                  onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
-                >
-                  <span className="font-medium text-left">{faq.question}</span>
-                  <ChevronDown 
-                    className={`w-5 h-5 transition-transform duration-200 ${
-                      expandedFaq === i ? 'transform rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                {expandedFaq === i && (
-                  <div className="mt-4 text-gray-400">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Oferta Especial Limitada
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              No pierdas esta oportunidad única. Accede a más de 80 herramientas premium por el precio más bajo del año.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
+                className="bg-white text-pink-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold shadow-lg hover:shadow-xl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Aprovechar Oferta Ahora
+              </a>
+              {!timeLeft.isExpired && (
+                <div className="text-white/90">
+                  <span className="font-semibold">Termina en: </span>
+                  <span className="font-bold text-xl">{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
