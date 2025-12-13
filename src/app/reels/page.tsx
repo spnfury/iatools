@@ -105,9 +105,9 @@ export default function ReelsDownloader() {
             <ol className="list-decimal list-inside space-y-2">
               <li>Copia la URL del reel de Instagram que quieres descargar</li>
               <li>Pega la URL en el campo de arriba</li>
-              <li>Haz clic en "Descargar Reel"</li>
+              <li>Haz clic en Descargar Reel</li>
               <li>Espera a que se procese el video</li>
-              <li>Haz clic en "Descargar MP4" para guardar el video</li>
+              <li>Haz clic en Descargar MP4 para guardar el video</li>
             </ol>
           </div>
         </div>
