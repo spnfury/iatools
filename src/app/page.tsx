@@ -1,7 +1,7 @@
 'use client';
 
 import { Brain, ChevronDown, Plus, Check, ArrowRight, Info } from 'lucide-react';
-import { useState, useRef, RefObject, useEffect } from 'react';
+import { useState, useRef, RefObject } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import SharedFooter from '@/components/SharedFooter';
@@ -23,48 +23,6 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('ai');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [isAnnual, setIsAnnual] = useState(false);
-
-  const blackFridayDeadline = new Date('2025-11-30T00:00:00');
-
-  const calculateTimeLeft = () => {
-    const difference = blackFridayDeadline.getTime() - new Date().getTime();
-
-    if (difference <= 0) {
-      return {
-        days: '00',
-        hours: '00',
-        minutes: '00',
-        seconds: '00',
-        isExpired: true
-      };
-    }
-
-    const totalSeconds = Math.floor(difference / 1000);
-    const days = Math.floor(totalSeconds / (60 * 60 * 24));
-    const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
-    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-    const seconds = totalSeconds % 60;
-
-    const pad = (value: number) => String(value).padStart(2, '0');
-
-    return {
-      days: pad(days),
-      hours: pad(hours),
-      minutes: pad(minutes),
-      seconds: pad(seconds),
-      isExpired: false
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
   
   // Referencias para las secciones
   const herramientasRef = useRef<HTMLDivElement>(null);
@@ -210,54 +168,30 @@ export default function Home() {
       {/* Announcement Bar */}
       <div className="bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-blue-600/20 border-b border-pink-500/40 text-pink-100 text-sm">
         <div className="container mx-auto px-4 py-2 text-center">
-          {timeLeft.isExpired
-            ? 'Oferta Black Friday finalizada recientemente. Escríbenos para conocer la próxima promoción.'
-            : `Black Friday termina en ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s — asegúrate de activar tu cuenta hoy.`}
+          Oferta activa: acceso total + bonos exclusivos. Plazas limitadas para garantizar soporte rápido.
         </div>
       </div>
       {/* Hero Section */}
       <section className="pt-40 pb-20">
         <div className="container mx-auto px-4 text-center">
-          {!timeLeft.isExpired && (
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-pink-600/20 border border-pink-500/30 rounded-full text-sm font-semibold text-pink-200 mb-6">
-              <span className="uppercase tracking-wide">Black Friday</span>
-              <span className="h-1 w-1 rounded-full bg-pink-300"></span>
-              <span>Oferta disponible solo hasta agotar el tiempo</span>
-            </div>
-          )}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Black Friday: <span className="text-pink-400">+40 Herramientas Premium</span>
+            Accede a <span className="text-pink-400">+80 Herramientas Premium</span>
             <br /> por el precio de una sola
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Reclama hoy la suscripción Black Friday y ahorra más de <span className="text-pink-400 font-semibold">+{totalValue - 25}€</span> al mes en licencias como ChatGPT Pro, ElevenLabs, Semrush Business y mucho más. Incluimos guías, templates y soporte prioritario.
+            Ahorra más de <span className="text-pink-400 font-semibold">+{totalValue - 25}€</span> al mes en licencias como ChatGPT Pro, ElevenLabs, Semrush Business y mucho más. Incluimos guías, templates y soporte prioritario.
           </p>
-          {!timeLeft.isExpired && (
-            <div className="flex justify-center gap-4 md:gap-6 mb-10">
-              {[
-                { label: 'Días', value: timeLeft.days },
-                { label: 'Horas', value: timeLeft.hours },
-                { label: 'Minutos', value: timeLeft.minutes },
-                { label: 'Segundos', value: timeLeft.seconds }
-              ].map((item, index) => (
-                <div key={index} className="w-20 md:w-24 h-20 md:h-24 bg-gray-800/60 border border-pink-500/30 rounded-2xl flex flex-col items-center justify-center shadow-lg">
-                  <span className="text-3xl md:text-4xl font-bold text-pink-300">{item.value}</span>
-                  <span className="text-xs uppercase tracking-wide text-gray-400 mt-1">{item.label}</span>
-                </div>
-              ))}
-            </div>
-          )}
           <div className="flex flex-col items-center gap-4">
             <a 
               href="#planes"
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
               className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-pink-600 hover:to-purple-600 transition text-lg font-semibold shadow-lg hover:shadow-xl"
             >
-              Reclamar oferta Black Friday 🚨
+              Ver planes y activar acceso
             </a>
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <Info className="w-4 h-4 text-gray-400" />
-              <span>Subimos precios <span className="text-red-400 font-semibold">muy pronto</span> 👀</span>
+              <span>Precio especial por tiempo limitado (sin compromiso: cancela cuando quieras).</span>
             </div>
           </div>
           
@@ -315,12 +249,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Black Friday Value Section */}
+      {/* Value Section */}
       <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 border-y border-pink-500/10">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Solo durante Black Friday: acceso total + bonos exclusivos
+              Acceso total + bonos exclusivos para acelerar tus resultados
             </h2>
             <p className="text-gray-300 text-lg mb-12">
               Asegura tu plaza hoy y desbloquea recursos pensados para acelerar tus resultados en menos de 24 horas.
@@ -330,7 +264,7 @@ export default function Home() {
             {[
               {
                 title: 'Precio congelado',
-                description: 'Mantén el precio Black Friday para siempre mientras mantengas tu suscripción activa.'
+                description: 'Mantén tu precio actual mientras mantengas tu suscripción activa.'
               },
               {
                 title: 'Bonos de implementación',
@@ -356,7 +290,7 @@ export default function Home() {
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
               className="inline-flex items-center gap-3 bg-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Activar acceso Black Friday ahora
+              Activar acceso ahora
               <ArrowRight className="w-5 h-5" />
             </a>
             <p className="text-gray-400 text-sm mt-4">
@@ -472,17 +406,17 @@ export default function Home() {
             <div className="mt-12 text-center">
               <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 rounded-2xl border border-blue-500/20">
                 <h3 className="text-2xl font-bold mb-4">
-                  ¿Listo para aprovechar el Black Friday de IA Tools?
+                  ¿Listo para empezar con IA Tools?
                 </h3>
                 <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                  Únete hoy y quédate con el precio más bajo del año en herramientas premium, recursos exclusivos y soporte priorizado.
+                  Únete hoy y accede a herramientas premium, recursos exclusivos y soporte priorizado en una sola suscripción.
                 </p>
                 <a 
                   href="#planes"
                   onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl pulse-glow"
                 >
-                  Asegurar Oferta
+                  Ver planes
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
@@ -576,7 +510,7 @@ export default function Home() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
-                  Aprovechar Black Friday
+                  Ver planes
                 </a>
                 <a 
                   href="mailto:soporte@iatools.shop"
@@ -600,7 +534,7 @@ export default function Home() {
             Catálogo Completo de Herramientas
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            Más de 80 herramientas premium, ahora disponibles en la edición Black Friday para que amplifiques tu negocio sin pagar una licencia por cada una.
+            Más de 80 herramientas premium en una sola suscripción para que amplifiques tu negocio sin pagar una licencia por cada una.
           </p>
           
           {/* Category Tabs */}
@@ -672,7 +606,7 @@ export default function Home() {
               <p className="text-lg">
                 <span className="text-gray-400">Valor total:</span> 
                 <span className="line-through text-gray-500 ml-2">{totalValue}€/mes</span>
-                <span className="text-green-400 font-bold ml-3">Black Friday: Ahorra {totalValue - 25}€ al mes</span>
+                <span className="text-green-400 font-bold ml-3">Ahorra {totalValue - 25}€ al mes</span>
               </p>
             </div>
             <a 
@@ -682,7 +616,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Black Friday: acceso total por solo 25€/mes
+              Acceso total por solo 25€/mes
             </a>
           </div>
         </div>
@@ -707,7 +641,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-300">
-                "Las herramientas de IA son increíbles. He podido automatizar gran parte de mi trabajo con ChatGPT Pro y Runway. El ahorro es impresionante."
+                Las herramientas de IA son increíbles. He podido automatizar gran parte de mi trabajo con ChatGPT Pro y Runway. El ahorro es impresionante.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
@@ -723,7 +657,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-300">
-                "El acceso a todas las herramientas premium como Elevenlabs y Canva en un solo lugar es increíble. Ya no necesito múltiples suscripciones."
+                El acceso a todas las herramientas premium como Elevenlabs y Canva en un solo lugar es increíble. Ya no necesito múltiples suscripciones.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
@@ -739,7 +673,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-300">
-                "La combinación de herramientas de IA y diseño me permite crear contenido de calidad en minutos. El soporte es excelente."
+                La combinación de herramientas de IA y diseño me permite crear contenido de calidad en minutos. El soporte es excelente.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
@@ -755,7 +689,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-300">
-                "Por el precio de una herramienta tengo acceso a más de 40. He ahorrado miles de euros al mes. La mejor inversión que he hecho."
+                Por el precio de una herramienta tengo acceso a más de 40. He ahorrado miles de euros al mes. La mejor inversión que he hecho.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
@@ -771,7 +705,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-300">
-                "Midjourney, Perplexity y todas las herramientas de IA en un solo lugar. El dashboard es muy intuitivo y fácil de usar."
+                Midjourney, Perplexity y todas las herramientas de IA en un solo lugar. El dashboard es muy intuitivo y fácil de usar.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
@@ -787,7 +721,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-300">
-                "He mejorado mi productividad un 300%. Las guías y templates incluidos me han ahorrado horas de trabajo. Totalmente recomendado."
+                He mejorado mi productividad un 300%. Las guías y templates incluidos me han ahorrado horas de trabajo. Totalmente recomendado.
               </p>
             </div>
           </div>
@@ -864,7 +798,7 @@ export default function Home() {
             <br />negocio, en una simple suscripción
           </h2>
           <p className="text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-            Acceso a herramientas premium de IA, integración y automatización sin complicaciones, con el precio exclusivo Black Friday garantizado.
+            Acceso a herramientas premium de IA, integración y automatización sin complicaciones, con un precio especial garantizado mientras mantengas tu suscripción.
           </p>
           
           <div className="grid md:grid-cols-4 gap-8">
@@ -932,12 +866,10 @@ export default function Home() {
       {/* Pricing */}
       <section ref={planesRef} id="planes" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Elige tu plan Black Friday</h2>
-          {!timeLeft.isExpired && (
-            <p className="text-center text-gray-400 mb-12">
-              Reclama el precio más bajo del año antes de que la cuenta atrás llegue a cero.
-            </p>
-          )}
+          <h2 className="text-3xl font-bold text-center mb-4">Elige tu plan</h2>
+          <p className="text-center text-gray-400 mb-12">
+            Elige mensual o anual. Acceso completo, soporte prioritario y actualizaciones semanales.
+          </p>
           
           <div className="max-w-5xl mx-auto">
             {/* Plan Selector */}
@@ -971,10 +903,10 @@ export default function Home() {
               </span>
             </div>
             <div className="grid md:grid-cols-2 gap-6 items-stretch">
-              {/* No suscribirse */}
+              {/* Pagar por separado */}
               <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                <h3 className="text-2xl font-bold mb-2">No activar Black Friday ☹️</h3>
-                <p className="text-gray-400 mb-6">Seguirás pagando el precio completo de cada herramienta y perderás los bonos exclusivos.</p>
+                <h3 className="text-2xl font-bold mb-2">Pagar por separado ☹️</h3>
+                <p className="text-gray-400 mb-6">Seguirás pagando el precio completo de cada herramienta y no tendrás los bonos ni el soporte prioritario.</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold">{totalValue}€</span>
                   <span className="text-gray-400">/mes</span>
@@ -990,7 +922,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-gray-500 rounded-full"></span>
-                    Sin templates ni recursos Black Friday
+                    Sin templates ni recursos de implementación
                   </li>
                 </ul>
                 <div className="text-gray-500 text-sm">Ahorro perdido: +{totalValue - 25}€/mes</div>
@@ -998,36 +930,25 @@ export default function Home() {
 
               {/* Plan Premium */}
               <div className="bg-blue-600 p-8 rounded-xl relative overflow-hidden">
-                <div className={`absolute top-4 right-4 text-sm px-3 py-1 rounded-full ${timeLeft.isExpired ? 'bg-blue-800' : 'bg-pink-500'}`}>
-                  {timeLeft.isExpired ? (isAnnual ? 'Mejor valor' : 'El más popular') : 'Oferta Black Friday'}
+                <div className="absolute top-4 right-4 text-sm px-3 py-1 rounded-full bg-pink-500">
+                  {isAnnual ? 'Mejor valor' : 'El más popular'}
                 </div>
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-2">Suscripción Black Friday</h3>
+                  <h3 className="text-2xl font-bold mb-2">Suscripción Premium</h3>
                   <p className="text-blue-200">Acceso completo a todas las herramientas + bonos exclusivos</p>
                 </div>
                 <div className="mb-8">
                   <div className="flex items-baseline justify-center md:justify-start gap-3">
-                    {!timeLeft.isExpired && (
-                      <span className="text-blue-200/70 line-through text-xl">
-                        {isAnnual ? '29€' : '35€'}
-                      </span>
-                    )}
                     <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
                     <span className="text-blue-200">/mes</span>
                   </div>
                   {isAnnual ? (
                     <>
                       <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
-                      {!timeLeft.isExpired && (
-                        <div className="text-sm text-blue-200 mt-1">Precio programado tras Black Friday: 29€/mes (348€/año).</div>
-                      )}
                     </>
                   ) : (
                     <>
-                      <div className="text-sm text-blue-200 mt-1">Precio mensual Black Friday garantizado mientras mantengas la suscripción.</div>
-                      {!timeLeft.isExpired && (
-                        <div className="text-sm text-blue-200 mt-1">Precio programado tras Black Friday: 35€/mes.</div>
-                      )}
+                      <div className="text-sm text-blue-200 mt-1">Precio mensual garantizado mientras mantengas la suscripción.</div>
                     </>
                   )}
                 </div>
@@ -1046,7 +967,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-white" />
-                    <span>Templates y recursos exclusivos Black Friday</span>
+                    <span>Templates y recursos exclusivos</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-white" />
@@ -1062,9 +983,7 @@ export default function Home() {
                   Reclamar oferta ahora
                 </a>
                 <p className="text-blue-100 text-xs mt-3">
-                  {timeLeft.isExpired
-                    ? 'Consulta soporte para conocer próximas promociones.'
-                    : '¿Pagas con crypto? Escríbenos: soporte@iatools.shop'}
+                  ¿Pagas con crypto? Escríbenos: soporte@iatools.shop
                 </p>
               </div>
             </div>
@@ -1080,7 +999,7 @@ export default function Home() {
               Oferta Especial Limitada
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              No pierdas esta oportunidad única. Accede a más de 80 herramientas premium por el precio más bajo del año.
+              No pierdas esta oportunidad única. Accede a más de 80 herramientas premium por un precio especial.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
@@ -1091,12 +1010,6 @@ export default function Home() {
               >
                 Aprovechar Oferta Ahora
               </a>
-              {!timeLeft.isExpired && (
-                <div className="text-white/90">
-                  <span className="font-semibold">Termina en: </span>
-                  <span className="font-bold text-xl">{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m</span>
-                </div>
-              )}
             </div>
           </div>
         </div>

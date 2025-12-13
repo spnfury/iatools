@@ -112,7 +112,7 @@ function getEmailTemplate(discountCode: string, telegramLink: string): string {
           <tr>
             <td style="padding: 30px; text-align: center; background-color: #1f2937; border-top: 1px solid rgba(255, 255, 255, 0.1);">
               <p style="margin: 0 0 10px 0; color: #6b7280; font-size: 12px;">
-                © 2024 iatools.shop. Todos los derechos reservados.
+                © ${new Date().getFullYear()} iatools.shop. Todos los derechos reservados.
               </p>
               <p style="margin: 0; color: #6b7280; font-size: 12px;">
                 Este es un correo automático, por favor no respondas a este mensaje.
