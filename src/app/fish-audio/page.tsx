@@ -15,11 +15,11 @@ export default function FishAudioPage() {
               Fish Audio Unlimited - Text to Speech IA Gratis
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              La alternativa más realista a ElevenLabs. Text to Speech, Voice Cloning y Speech to Text 
+              La alternativa más realista a ElevenLabs. Text to Speech, Voice Cloning y Speech to Text
               con voces naturales. Incluido en IA Tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function FishAudioPage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function FishAudioPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Text to Speech Realista</h3>
               <p className="text-gray-400">
-                Convierte texto en voz natural con más de 100 voces en múltiples idiomas. 
+                Convierte texto en voz natural con más de 100 voces en múltiples idiomas.
                 Calidad de estudio sin necesidad de grabaciones costosas.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function FishAudioPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Voice Cloning Avanzado</h3>
               <p className="text-gray-400">
-                Clona cualquier voz con solo unos segundos de audio. Crea voces personalizadas 
+                Clona cualquier voz con solo unos segundos de audio. Crea voces personalizadas
                 para tu marca o proyectos específicos.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function FishAudioPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Speech to Text</h3>
               <p className="text-gray-400">
-                Transcribe audio a texto con alta precisión. Ideal para entrevistas, 
+                Transcribe audio a texto con alta precisión. Ideal para entrevistas,
                 reuniones y contenido multimedia.
               </p>
             </div>
@@ -150,21 +150,21 @@ export default function FishAudioPage() {
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Audiolibros</h3>
               <p className="text-gray-400">
-                Convierte libros electrónicos en audiolibros profesionales con voces naturales 
+                Convierte libros electrónicos en audiolibros profesionales con voces naturales
                 y expresivas.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Videos Educativos</h3>
               <p className="text-gray-400">
-                Crea narraciones para cursos online, tutoriales y contenido educativo 
+                Crea narraciones para cursos online, tutoriales y contenido educativo
                 con voces claras y profesionales.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Podcasts</h3>
               <p className="text-gray-400">
-                Genera episodios de podcast con voces consistentes y de alta calidad 
+                Genera episodios de podcast con voces consistentes y de alta calidad
                 sin necesidad de grabaciones.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function FishAudioPage() {
             Comienza a Crear Audio con IA Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a Fish Audio y más de 40 herramientas premium por solo 25€/mes
+            Accede a Fish Audio y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"

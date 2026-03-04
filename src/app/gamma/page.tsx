@@ -15,11 +15,11 @@ export default function GammaPage() {
               Gamma Unlimited - Diseño IA Gratis
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              Crea presentaciones, sitios web y más con IA. Sin necesidad de habilidades 
+              Crea presentaciones, sitios web y más con IA. Sin necesidad de habilidades
               de diseño o programación. Incluido en IA Tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function GammaPage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function GammaPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Presentaciones IA</h3>
               <p className="text-gray-400">
-                Crea presentaciones profesionales en segundos. La IA genera contenido, 
+                Crea presentaciones profesionales en segundos. La IA genera contenido,
                 diseño y estructura automáticamente.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function GammaPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Sitios Web</h3>
               <p className="text-gray-400">
-                Diseña sitios web completos sin código. La IA crea páginas responsivas 
+                Diseña sitios web completos sin código. La IA crea páginas responsivas
                 y optimizadas automáticamente.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function GammaPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Diseño Inteligente</h3>
               <p className="text-gray-400">
-                Genera diseños únicos y profesionales. La IA entiende tu marca y 
+                Genera diseños únicos y profesionales. La IA entiende tu marca y
                 crea contenido visual coherente.
               </p>
             </div>
@@ -150,21 +150,21 @@ export default function GammaPage() {
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Presentaciones de Negocio</h3>
               <p className="text-gray-400">
-                Crea presentaciones para clientes, inversores y reuniones 
+                Crea presentaciones para clientes, inversores y reuniones
                 ejecutivas con diseño profesional.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Sitios Web</h3>
               <p className="text-gray-400">
-                Diseña landing pages, sitios corporativos y portafolios 
+                Diseña landing pages, sitios corporativos y portafolios
                 sin necesidad de programación.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Contenido Educativo</h3>
               <p className="text-gray-400">
-                Genera materiales de enseñanza, infografías y presentaciones 
+                Genera materiales de enseñanza, infografías y presentaciones
                 para cursos online.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function GammaPage() {
             Comienza a Diseñar con IA Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a Gamma y más de 40 herramientas premium por solo 25€/mes
+            Accede a Gamma y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"

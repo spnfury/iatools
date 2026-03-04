@@ -15,11 +15,11 @@ export default function TurboscribePage() {
               Turboscribe Unlimited - Transcripción IA Gratis
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              Transcripción ilimitada de audio y video a texto preciso en segundos. 
+              Transcripción ilimitada de audio y video a texto preciso en segundos.
               La mejor herramienta de transcripción IA. Incluido en IA Tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function TurboscribePage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function TurboscribePage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Transcripción de Audio</h3>
               <p className="text-gray-400">
-                Convierte archivos de audio a texto con precisión del 99%. Soporta múltiples 
+                Convierte archivos de audio a texto con precisión del 99%. Soporta múltiples
                 formatos y idiomas.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function TurboscribePage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Transcripción de Video</h3>
               <p className="text-gray-400">
-                Extrae audio de videos y lo transcribe automáticamente. Ideal para 
+                Extrae audio de videos y lo transcribe automáticamente. Ideal para
                 contenido multimedia y entrevistas.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function TurboscribePage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Velocidad Ultra</h3>
               <p className="text-gray-400">
-                Procesa archivos en segundos, no en horas. Tecnología IA avanzada 
+                Procesa archivos en segundos, no en horas. Tecnología IA avanzada
                 para transcripciones rápidas y precisas.
               </p>
             </div>
@@ -150,21 +150,21 @@ export default function TurboscribePage() {
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Entrevistas</h3>
               <p className="text-gray-400">
-                Transcribe entrevistas de trabajo, periodísticas o de investigación 
+                Transcribe entrevistas de trabajo, periodísticas o de investigación
                 con precisión profesional.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Reuniones</h3>
               <p className="text-gray-400">
-                Convierte grabaciones de reuniones en actas detalladas y 
+                Convierte grabaciones de reuniones en actas detalladas y
                 documentos de seguimiento.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Contenido Multimedia</h3>
               <p className="text-gray-400">
-                Crea subtítulos y transcripciones para videos, podcasts 
+                Crea subtítulos y transcripciones para videos, podcasts
                 y contenido educativo.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function TurboscribePage() {
             Comienza a Transcribir con IA Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a Turboscribe y más de 40 herramientas premium por solo 25€/mes
+            Accede a Turboscribe y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"

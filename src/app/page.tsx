@@ -19,17 +19,17 @@ interface ToolCategories {
 export default function Home() {
   const whopCheckoutMonthly = "https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893";
   const whopCheckoutAnnual = "https://whop.com/checkout/plan_QfbHBxoZh4Skr?d2c=true&a=usere6d0672893";
-  
+
   const [activeTab, setActiveTab] = useState('ai');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [isAnnual, setIsAnnual] = useState(false);
-  
+
   // Referencias para las secciones
   const herramientasRef = useRef<HTMLDivElement>(null);
   const opinionesRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
   const planesRef = useRef<HTMLDivElement>(null);
-  
+
   const toolCategories: ToolCategories = {
     ai: [
       { name: "ChatGPT Plus", price: "20€/mes" },
@@ -139,7 +139,7 @@ export default function Home() {
   };
 
   const totalValue = calculateTotalValue();
-  
+
   // Función para desplazarse a una sección
   const scrollToSection = (ref: RefObject<HTMLDivElement>) => {
     if (ref && ref.current) {
@@ -179,10 +179,10 @@ export default function Home() {
             <br /> por el precio de una sola
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Ahorra más de <span className="text-pink-400 font-semibold">+{totalValue - 25}€</span> al mes en licencias como ChatGPT Pro, ElevenLabs, Semrush Business y mucho más. Incluimos guías, templates y soporte prioritario.
+            Ahorra más de <span className="text-pink-400 font-semibold">+{totalValue - 26.25}€</span> al mes en licencias como ChatGPT Pro, ElevenLabs, Semrush Business y mucho más. Incluimos guías, templates y soporte prioritario.
           </p>
           <div className="flex flex-col items-center gap-4">
-            <a 
+            <a
               href="#planes"
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
               className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-pink-600 hover:to-purple-600 transition text-lg font-semibold shadow-lg hover:shadow-xl"
@@ -194,7 +194,7 @@ export default function Home() {
               <span>Precio especial por tiempo limitado (sin compromiso: cancela cuando quieras).</span>
             </div>
           </div>
-          
+
           {/* Tool Logos Slider - Improved version */}
           <div className="mt-16 overflow-hidden">
             <div className="flex flex-nowrap animate-scroll">
@@ -202,14 +202,14 @@ export default function Home() {
                 <div key={index} className="flex-none w-1/3 md:w-1/4 lg:w-1/6 px-4">
                   <div className="text-center">
                     <div className="h-16 flex items-center justify-center bg-gray-800/30 rounded-lg p-3">
-                      <img 
-                        src={tool.logo} 
-                        alt={tool.name} 
+                      <img
+                        src={tool.logo}
+                        alt={tool.name}
                         className="max-h-12 max-w-full object-contain opacity-90 hover:opacity-100 transition mx-auto"
-                        style={{ 
+                        style={{
                           filter: tool.name === 'HeyGen' || tool.name === 'Freepik' || tool.name === 'ElevenLabs' || tool.name === 'Fish Audio'
-                            ? 'brightness(0) invert(1)' 
-                            : 'none' 
+                            ? 'brightness(0) invert(1)'
+                            : 'none'
                         }}
                         loading="lazy"
                         onError={(e) => {
@@ -307,7 +307,7 @@ export default function Home() {
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -337,7 +337,7 @@ export default function Home() {
             <p className="text-gray-400 text-center mb-8 text-lg max-w-2xl mx-auto">
               Descubre cómo nuestra plataforma te da acceso a más de 80 herramientas premium de IA, diseño y automatización en una sola suscripción
             </p>
-            
+
             {/* Instagram Reel Embed */}
             <div className="flex justify-center mb-8">
               <div className="instagram-reel-container w-full max-w-sm aspect-[9/16] shadow-2xl">
@@ -353,25 +353,25 @@ export default function Home() {
                 ></iframe>
               </div>
             </div>
-            
+
             {/* Fallback para el reel */}
             <div className="text-center">
               <p className="text-gray-400 mb-4">
                 Si no puedes ver el reel, puedes verlo directamente en Instagram:
               </p>
-              <a 
+              <a
                 href="https://www.instagram.com/reel/DMGQFq4NXKt/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-medium"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
                 Ver en Instagram
               </a>
             </div>
-            
+
             <div className="mt-12 grid md:grid-cols-3 gap-8">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition-all duration-300">
@@ -401,7 +401,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             {/* Call to Action después del reel */}
             <div className="mt-12 text-center">
               <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 rounded-2xl border border-blue-500/20">
@@ -411,7 +411,7 @@ export default function Home() {
                 <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
                   Únete hoy y accede a herramientas premium, recursos exclusivos y soporte priorizado en una sola suscripción.
                 </p>
-                <a 
+                <a
                   href="#planes"
                   onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl pulse-glow"
@@ -435,7 +435,7 @@ export default function Home() {
             <p className="text-gray-400 text-center mb-12 text-lg max-w-3xl mx-auto">
               Mira este video para ver exactamente cómo acceder a todas las herramientas premium desde nuestro dashboard
             </p>
-            
+
             {/* Video Demo */}
             <div className="relative video-demo-container">
               <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-800">
@@ -450,7 +450,7 @@ export default function Home() {
                   className="w-full h-full"
                 ></iframe>
               </div>
-              
+
               {/* Overlay con información adicional */}
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
                 <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full shadow-lg float-animation">
@@ -458,7 +458,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             {/* Características destacadas del video */}
             <div className="mt-16 grid md:grid-cols-3 gap-8">
               <div className="text-center feature-card p-6 rounded-xl">
@@ -495,14 +495,14 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             {/* CTA adicional */}
             <div className="mt-12 text-center">
               <p className="text-gray-400 mb-6">
                 ¿Tienes preguntas sobre cómo funciona? Nuestro equipo está aquí para ayudarte
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
+                <a
                   href="#planes"
                   onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
                   className="inline-flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-all duration-300 font-semibold"
@@ -512,7 +512,7 @@ export default function Home() {
                   </svg>
                   Ver planes
                 </a>
-                <a 
+                <a
                   href="mailto:soporte@iatools.shop"
                   className="inline-flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-all duration-300 font-medium"
                 >
@@ -536,7 +536,7 @@ export default function Home() {
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
             Más de 80 herramientas premium en una sola suscripción para que amplifiques tu negocio sin pagar una licencia por cada una.
           </p>
-          
+
           {/* Category Tabs */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {[
@@ -549,17 +549,16 @@ export default function Home() {
               <button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                  activeTab === category.id 
-                    ? 'bg-blue-500 text-white' 
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeTab === category.id
+                    ? 'bg-blue-500 text-white'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
+                  }`}
               >
                 {category.label}
               </button>
             ))}
           </div>
-          
+
           {/* Tool Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {toolCategories[activeTab].map((tool: Tool, index: number) => {
@@ -585,7 +584,7 @@ export default function Home() {
               };
 
               const toolRoute = getToolRoute(tool.name);
-              
+
               return (
                 <div key={index} className="bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition-colors">
                   {toolRoute ? (
@@ -600,23 +599,23 @@ export default function Home() {
               );
             })}
           </div>
-          
+
           <div className="text-center mt-12">
             <div className="mb-4">
               <p className="text-lg">
-                <span className="text-gray-400">Valor total:</span> 
+                <span className="text-gray-400">Valor total:</span>
                 <span className="line-through text-gray-500 ml-2">{totalValue}€/mes</span>
-                <span className="text-green-400 font-bold ml-3">Ahorra {totalValue - 25}€ al mes</span>
+                <span className="text-green-400 font-bold ml-3">Ahorra {totalValue - 26.25}€ al mes</span>
               </p>
             </div>
-            <a 
+            <a
               href="#planes"
               onClick={(e) => { e.preventDefault(); scrollToSection(planesRef); }}
               className="inline-block bg-pink-500 text-white px-8 py-4 rounded-lg hover:bg-pink-600 transition text-lg font-bold"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Acceso total por solo 25€/mes
+              Acceso total por solo 26,25€/mes
             </a>
           </div>
         </div>
@@ -626,7 +625,7 @@ export default function Home() {
       <section ref={opinionesRef} id="opiniones" className="py-20 bg-gray-800/50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">¿Qué opinan nuestros suscriptores?</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
               <div className="flex items-start gap-4 mb-4">
@@ -739,7 +738,7 @@ export default function Home() {
               Resolvemos todas tus dudas sobre StealthPack y cómo puedes ahorrar miles de euros
             </p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
@@ -768,15 +767,14 @@ export default function Home() {
               }
             ].map((faq, i) => (
               <div key={i} className="bg-gray-800/80 border border-gray-700/50 p-6 rounded-xl hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
-                <button 
+                <button
                   className="w-full flex justify-between items-center group"
                   onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
                 >
                   <span className="font-semibold text-left text-lg group-hover:text-pink-400 transition-colors pr-4">{faq.question}</span>
-                  <ChevronDown 
-                    className={`w-6 h-6 transition-transform duration-200 flex-shrink-0 text-gray-400 group-hover:text-pink-400 ${
-                      expandedFaq === i ? 'transform rotate-180' : ''
-                    }`}
+                  <ChevronDown
+                    className={`w-6 h-6 transition-transform duration-200 flex-shrink-0 text-gray-400 group-hover:text-pink-400 ${expandedFaq === i ? 'transform rotate-180' : ''
+                      }`}
                   />
                 </button>
                 {expandedFaq === i && (
@@ -800,7 +798,7 @@ export default function Home() {
           <p className="text-gray-400 text-center mb-16 max-w-3xl mx-auto">
             Acceso a herramientas premium de IA, integración y automatización sin complicaciones, con un precio especial garantizado mientras mantengas tu suscripción.
           </p>
-          
+
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-gray-800 p-6 rounded-xl">
               <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
@@ -870,7 +868,7 @@ export default function Home() {
           <p className="text-center text-gray-400 mb-12">
             Elige mensual o anual. Acceso completo, soporte prioritario y actualizaciones semanales.
           </p>
-          
+
           <div className="max-w-5xl mx-auto">
             {/* Plan Selector */}
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -885,14 +883,12 @@ export default function Home() {
                 role="switch"
                 aria-checked={isAnnual}
                 aria-label="Alternar entre plan mensual y anual"
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  isAnnual ? 'bg-blue-500' : 'bg-gray-600'
-                }`}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${isAnnual ? 'bg-blue-500' : 'bg-gray-600'
+                  }`}
               >
                 <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    isAnnual ? 'translate-x-6' : 'translate-x-1'
-                  }`}
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${isAnnual ? 'translate-x-6' : 'translate-x-1'
+                    }`}
                 />
               </button>
               <span
@@ -925,7 +921,7 @@ export default function Home() {
                     Sin templates ni recursos de implementación
                   </li>
                 </ul>
-                <div className="text-gray-500 text-sm">Ahorro perdido: +{totalValue - 25}€/mes</div>
+                <div className="text-gray-500 text-sm">Ahorro perdido: +{totalValue - 26.25}€/mes</div>
               </div>
 
               {/* Plan Premium */}
@@ -939,12 +935,12 @@ export default function Home() {
                 </div>
                 <div className="mb-8">
                   <div className="flex items-baseline justify-center md:justify-start gap-3">
-                    <span className="text-4xl font-bold">{isAnnual ? '18,91€' : '25€'}</span>
+                    <span className="text-4xl font-bold">{isAnnual ? '19,86€' : '26,25€'}</span>
                     <span className="text-blue-200">/mes</span>
                   </div>
                   {isAnnual ? (
                     <>
-                      <div className="text-sm text-blue-200 mt-1">Facturado anualmente (227€/año)</div>
+                      <div className="text-sm text-blue-200 mt-1">Facturado anualmente (238,35€/año)</div>
                     </>
                   ) : (
                     <>
@@ -974,7 +970,7 @@ export default function Home() {
                     <span>Precio congelado para renovaciones futuras</span>
                   </li>
                 </ul>
-                <a 
+                <a
                   href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
                   className="block w-full bg-white text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition text-center font-semibold"
                   target="_blank"
@@ -1002,7 +998,7 @@ export default function Home() {
               No pierdas esta oportunidad única. Accede a más de 80 herramientas premium por un precio especial.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
+              <a
                 href={isAnnual ? whopCheckoutAnnual : whopCheckoutMonthly}
                 className="bg-white text-pink-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold shadow-lg hover:shadow-xl"
                 target="_blank"

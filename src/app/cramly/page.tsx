@@ -15,11 +15,11 @@ export default function CramlyPage() {
               Cramly Unlimited - Asistente de Estudio IA Gratis
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              Asistente de estudio potenciado por IA para aprendizaje eficiente, parafraseo 
+              Asistente de estudio potenciado por IA para aprendizaje eficiente, parafraseo
               y detección de plagio. Incluido en IA Tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function CramlyPage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function CramlyPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Asistente de Estudio IA</h3>
               <p className="text-gray-400">
-                Obtén ayuda personalizada para tus estudios con explicaciones claras, 
+                Obtén ayuda personalizada para tus estudios con explicaciones claras,
                 resúmenes y respuestas a preguntas complejas.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function CramlyPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Parafraseo Inteligente</h3>
               <p className="text-gray-400">
-                Reescribe textos manteniendo el significado original pero con palabras 
+                Reescribe textos manteniendo el significado original pero con palabras
                 diferentes. Ideal para evitar plagio.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function CramlyPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Detección de Plagio</h3>
               <p className="text-gray-400">
-                Analiza textos para detectar contenido duplicado y asegurar 
+                Analiza textos para detectar contenido duplicado y asegurar
                 la originalidad de tus trabajos académicos.
               </p>
             </div>
@@ -150,21 +150,21 @@ export default function CramlyPage() {
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Estudiantes</h3>
               <p className="text-gray-400">
-                Obtén ayuda con tareas, ensayos, investigaciones y preparación 
+                Obtén ayuda con tareas, ensayos, investigaciones y preparación
                 para exámenes de cualquier materia.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Investigadores</h3>
               <p className="text-gray-400">
-                Analiza papers, genera resúmenes y verifica la originalidad 
+                Analiza papers, genera resúmenes y verifica la originalidad
                 de tus trabajos de investigación.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Profesores</h3>
               <p className="text-gray-400">
-                Crea contenido educativo, verifica trabajos de estudiantes 
+                Crea contenido educativo, verifica trabajos de estudiantes
                 y genera materiales de enseñanza.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function CramlyPage() {
             Potencia tu Aprendizaje con IA Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a Cramly y más de 40 herramientas premium por solo 25€/mes
+            Accede a Cramly y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"

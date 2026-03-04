@@ -15,11 +15,11 @@ export default function ChatBotAIPage() {
               ChatBot AI Unlimited - Chatbot Todo en Uno Gratis
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              Chatbot completo con Claude, generación de imágenes, análisis de PDFs y más. 
+              Chatbot completo con Claude, generación de imágenes, análisis de PDFs y más.
               Todo en una sola plataforma. Incluido en IA Tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function ChatBotAIPage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function ChatBotAIPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Claude IA</h3>
               <p className="text-gray-400">
-                Acceso completo a Claude, uno de los modelos de IA más avanzados. 
+                Acceso completo a Claude, uno de los modelos de IA más avanzados.
                 Conversaciones inteligentes y análisis profundo.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function ChatBotAIPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Generación de Imágenes</h3>
               <p className="text-gray-400">
-                Crea imágenes únicas con IA. Desde ilustraciones hasta fotos realistas 
+                Crea imágenes únicas con IA. Desde ilustraciones hasta fotos realistas
                 basadas en tus descripciones.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function ChatBotAIPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Análisis de PDFs</h3>
               <p className="text-gray-400">
-                Sube PDFs y obtén análisis detallados, resúmenes y respuestas 
+                Sube PDFs y obtén análisis detallados, resúmenes y respuestas
                 basadas en el contenido del documento.
               </p>
             </div>
@@ -150,21 +150,21 @@ export default function ChatBotAIPage() {
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Asistente Personal</h3>
               <p className="text-gray-400">
-                Usa Claude como tu asistente personal para tareas diarias, 
+                Usa Claude como tu asistente personal para tareas diarias,
                 investigación y resolución de problemas.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Análisis de Documentos</h3>
               <p className="text-gray-400">
-                Sube contratos, informes y documentos para obtener análisis 
+                Sube contratos, informes y documentos para obtener análisis
                 detallados y resúmenes automáticos.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Creación de Contenido</h3>
               <p className="text-gray-400">
-                Genera imágenes únicas para proyectos creativos, marketing 
+                Genera imágenes únicas para proyectos creativos, marketing
                 y contenido visual personalizado.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function ChatBotAIPage() {
             Comienza a Usar ChatBot AI Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a ChatBot AI y más de 40 herramientas premium por solo 25€/mes
+            Accede a ChatBot AI y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"

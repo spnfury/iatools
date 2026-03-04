@@ -15,11 +15,11 @@ export default function HeyGenPage() {
               HeyGen Unlimited - Creación y Traducción de Videos IA
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              Crea, traduce y personaliza videos en minutos con inteligencia artificial avanzada. 
+              Crea, traduce y personaliza videos en minutos con inteligencia artificial avanzada.
               Incluido en IA Tools con acceso ilimitado.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function HeyGenPage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function HeyGenPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Creación de Videos IA</h3>
               <p className="text-gray-400">
-                Genera videos profesionales con avatares AI, voces naturales y scripts automáticos. 
+                Genera videos profesionales con avatares AI, voces naturales y scripts automáticos.
                 Crea contenido en minutos sin necesidad de equipos costosos.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function HeyGenPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Traducción Automática</h3>
               <p className="text-gray-400">
-                Traduce videos a múltiples idiomas manteniendo la sincronización de labios y 
+                Traduce videos a múltiples idiomas manteniendo la sincronización de labios y
                 expresiones naturales. Soporte para más de 40 idiomas.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function HeyGenPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Personalización Avanzada</h3>
               <p className="text-gray-400">
-                Personaliza avatares, voces, gestos y expresiones. Crea videos únicos que 
+                Personaliza avatares, voces, gestos y expresiones. Crea videos únicos que
                 reflejen tu marca y mensaje específico.
               </p>
             </div>
@@ -147,9 +147,9 @@ export default function HeyGenPage() {
             Comienza a Crear Videos con IA Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a HeyGen y más de 40 herramientas premium por solo 25€/mes
+            Accede a HeyGen y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"

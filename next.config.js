@@ -5,7 +5,6 @@ const nextConfig = {
   },
   trailingSlash: true,
   optimizeFonts: false,
-  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://iatools.iapasion.com' : '',
   async rewrites() {
     return [
       {

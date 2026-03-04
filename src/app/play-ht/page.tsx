@@ -15,11 +15,11 @@ export default function PlayHTPage() {
               Play.HT Unlimited - Text to Speech IA Gratis
             </h1>
             <p className="text-xl text-gray-400 mb-8">
-              Alternativa económica a ElevenLabs. Generador de texto a voz con voces naturales 
+              Alternativa económica a ElevenLabs. Generador de texto a voz con voces naturales
               y expresivas. Incluido en IA Tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
                 className="bg-blue-500 text-white px-8 py-4 rounded-full hover:bg-blue-600 transition text-lg font-medium"
                 target="_blank"
@@ -27,7 +27,7 @@ export default function PlayHTPage() {
               >
                 Obtener Acceso Ahora
               </a>
-              <a 
+              <a
                 href="#caracteristicas"
                 className="border border-gray-600 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition text-lg font-medium"
               >
@@ -53,7 +53,7 @@ export default function PlayHTPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Voces Naturales</h3>
               <p className="text-gray-400">
-                Más de 600 voces en 60+ idiomas con entonación natural y expresiva. 
+                Más de 600 voces en 60+ idiomas con entonación natural y expresiva.
                 Calidad de estudio sin sonido robótico.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function PlayHTPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Velocidad Ultra</h3>
               <p className="text-gray-400">
-                Genera audio en segundos. Tecnología IA avanzada para conversión 
+                Genera audio en segundos. Tecnología IA avanzada para conversión
                 rápida de texto a voz de alta calidad.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function PlayHTPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Control Avanzado</h3>
               <p className="text-gray-400">
-                Ajusta velocidad, tono, pausas y énfasis. Control total sobre 
+                Ajusta velocidad, tono, pausas y énfasis. Control total sobre
                 la expresión y entonación del audio.
               </p>
             </div>
@@ -150,21 +150,21 @@ export default function PlayHTPage() {
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Audiolibros</h3>
               <p className="text-gray-400">
-                Convierte libros electrónicos en audiolibros con voces naturales 
+                Convierte libros electrónicos en audiolibros con voces naturales
                 y expresivas para diferentes géneros.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Videos Educativos</h3>
               <p className="text-gray-400">
-                Crea narraciones para cursos online, tutoriales y contenido 
+                Crea narraciones para cursos online, tutoriales y contenido
                 educativo con voces claras y profesionales.
               </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Aplicaciones</h3>
               <p className="text-gray-400">
-                Integra voces IA en aplicaciones móviles, juegos y 
+                Integra voces IA en aplicaciones móviles, juegos y
                 sistemas de navegación por voz.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function PlayHTPage() {
             Comienza a Crear Audio con IA Hoy
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Accede a Play.HT y más de 40 herramientas premium por solo 25€/mes
+            Accede a Play.HT y más de 40 herramientas premium por solo 26,25€/mes
           </p>
-          <a 
+          <a
             href="https://whop.com/checkout/plan_tNnm4kX0PhWAD?d2c=true&a=usere6d0672893"
             className="bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg font-bold"
             target="_blank"
