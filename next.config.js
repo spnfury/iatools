@@ -10,11 +10,11 @@ const nextConfig = {
     return [
       {
         source: '/proxy/script.js',
-        destination: 'https://plausible.miprimermvp.com/js/script.js'
+        destination: 'https://clase-plausible.s0e6bf.easypanel.host/js/script.js'
       },
       {
         source: '/proxy/api/event',
-        destination: 'https://plausible.miprimermvp.com/api/event'
+        destination: 'https://clase-plausible.s0e6bf.easypanel.host/api/event'
       }
     ]
   }
