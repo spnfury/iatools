@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://iatools.com/sitemap.xml', // Cambiar por tu dominio real
+    sitemap: 'https://iatools.iapasion.com/sitemap.xml',
   }
 } 

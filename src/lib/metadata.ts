@@ -324,7 +324,7 @@ export function generateServiceMetadata(service: string, lang: 'es' | 'en' = 'es
       description: currentMetadata.ogDescription,
       type: 'website',
       locale: lang === 'es' ? 'es_ES' : 'en_US',
-      url: `https://iatools.shop/${service}`,
+      url: `https://iatools.iapasion.com/${service}`,
       siteName: 'IA Tools',
       images: [
         {
@@ -354,10 +354,10 @@ export function generateServiceMetadata(service: string, lang: 'es' | 'en' = 'es
       },
     },
     alternates: {
-      canonical: `https://iatools.shop/${service}`,
+      canonical: `https://iatools.iapasion.com/${service}`,
       languages: {
-        'es': `https://iatools.shop/${service}`,
-        'en': `https://iatools.shop/${service}?lang=en`,
+        'es': `https://iatools.iapasion.com/${service}`,
+        'en': `https://iatools.iapasion.com/${service}?lang=en`,
       },
     },
   };

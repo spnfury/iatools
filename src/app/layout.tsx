@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://iatools.shop'),
+  metadataBase: new URL('https://iatools.iapasion.com'),
   alternates: {
     canonical: '/',
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Acceso a más de 80 herramientas de IA y software premium en una simple suscripción.',
     type: 'website',
     locale: 'es_ES',
-    url: 'https://iatools.shop',
+    url: 'https://iatools.iapasion.com',
     siteName: 'IA Tools',
     images: [
       {

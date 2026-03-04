@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://iatools.com' // Cambiar por tu dominio real
-  
+  const baseUrl = 'https://iatools.iapasion.com'
+
   return [
     {
       url: baseUrl,
