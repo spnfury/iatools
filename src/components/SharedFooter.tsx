@@ -5,7 +5,6 @@ interface SharedFooterProps {
 export default function SharedFooter({ currentProject }: SharedFooterProps) {
   const projects = [
     { name: 'iatools.shop', url: 'https://iatools.shop' },
-    { name: 'webcraft.solutions', url: 'https://webcraft.solutions' },
     { name: 'aiwriter.pro', url: 'https://aiwriter.pro' },
     // Añade aquí más proyectos según necesites
   ];

@@ -1017,16 +1017,6 @@ export default function Home() {
       {/* Footer compartido */}
       <SharedFooter currentProject="iatools.shop" />
 
-      {/* Webcraft.ai Badge - Updated to match Gamma style */}
-      <a
-        href="https://webcraft.solutions"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white px-3 py-1.5 rounded-md text-xs font-medium shadow-lg flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity"
-      >
-        <Brain className="w-3.5 h-3.5" />
-        Create Websites with AI
-      </a>
     </main>
   );
 } 

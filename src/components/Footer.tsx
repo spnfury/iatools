@@ -25,15 +25,14 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li><a href="#herramientas" className="hover:text-white">Características</a></li>
               <li><a href="#planes" className="hover:text-white">Precios</a></li>
-              <li><a href="#" className="hover:text-white">Integraciones</a></li>
+              <li><a href="#opiniones" className="hover:text-white">Opiniones</a></li>
+              <li><a href="#faq" className="hover:text-white">FAQ</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Recursos</h3>
+            <h3 className="font-bold mb-4">Contacto</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white">Blog</a></li>
-              <li><a href="#" className="hover:text-white">Documentación</a></li>
-              <li><a href="#" className="hover:text-white">Tutoriales</a></li>
+              <li><a href="mailto:soporte@iatools.shop" className="hover:text-white">soporte@iatools.shop</a></li>
             </ul>
           </div>
           <div>
@@ -41,7 +40,6 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li><Link href="/terms" className="hover:text-white">Términos y Condiciones</Link></li>
               <li><Link href="/privacy" className="hover:text-white">Privacidad</Link></li>
-              <li><Link href="/terms" className="hover:text-white">Cookies</Link></li>
             </ul>
           </div>
         </div>
